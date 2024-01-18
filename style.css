@@ -1,0 +1,35 @@
+* {
+    border: 0.5px solid white;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    width: 600px;
+    margin: 15px;
+}
+
+.addHabit {
+    padding: 8px 16px;
+    border-radius: 16px;
+    background-color: orange;
+    color: white;
+    margin-left: 500px;
+    margin-bottom: 20px;
+}
+
+.addHabit:hover {
+    cursor: pointer;
+}
+
+.days, .dates {
+    display: flex;
+    width: 600px;
+}
+
+p {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+
+}
