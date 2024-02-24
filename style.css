@@ -1,27 +1,46 @@
 * {
     border: 0.5px solid white;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.nav, .main {
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    margin: 50px 25px;
 }
 
 h1 {
     text-align: center;
-    width: 600px;
-    margin: 15px;
+    width: 500px;
+    border: none;
+    display: inline-block;
+
 }
 
 .addHabit {
-    padding: 8px 16px;
-    border-radius: 16px;
-    background-color: orange;
-    color: white;
-    margin-left: 500px;
-    margin-bottom: 20px;
+    padding: 10px 25px;
+    border-radius: 20px;
+    background-color: #EECC8C;
+    border: none;
 }
 
 .addHabit:hover {
     cursor: pointer;
 }
 
+.streak {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    margin-left: 50px;
+}
 .days, .dates {
     display: flex;
     width: 600px;
