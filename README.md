@@ -11,7 +11,7 @@ To create a habit tracker that allows you you keep track of your daily, weekly, 
 
 ## :pencil: Motivation
 
-My motivation for this project was that I wanted an all-in-one app where I could keep track of my habits, encourage me to maintain streaks, as well as let me record my thoughts or any notes I had about that day's progress because one thing I've learned about myself is that I'm more motivated to reach my goals if I have an easy way to track of my progress! This is my project for Get Coding Module 1 and is helping me learn to code. 
+My motivation for this project was that I wanted an all-in-one app where I could keep track of my habits, encourage me to maintain streaks, as well as let me record my thoughts or any notes I had about that day's progress because one thing I've learned about myself is that I'm more motivated to reach my goals if I have an easy way to track of my progress! 
 
 ## :computer: Built With
 
@@ -22,7 +22,7 @@ My motivation for this project was that I wanted an all-in-one app where I could
 
 
 ## Acknowledgements
-Thank you to my coach, Gillian, for her guidance and support while I work on this project.
+This is my project for Get Coding Module 1. Thank you to my coach, Gillian, for her guidance and support while I work on this project!
 
 ### 🚧 View the Prototype
 This project is still a work in progress, view the current verison here: [thefirstnoellle.github.io/habitHaven/](thefirstnoellle.github.io/habitHaven/)
