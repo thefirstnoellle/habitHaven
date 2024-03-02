@@ -3,6 +3,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: 'Raleway';
 }
 
 .header {
@@ -16,7 +17,6 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    font-family: 'Raleway';
     font-size: 25px;
     font-weight: 200;
    }
@@ -39,10 +39,9 @@ body {
     margin-left: 32px;
     color:#283E50;
     transition-duration: 0.4s;
-    font-family: 'Raleway';
 }
 
-.cta:hover, .addHabit:hover {
+.cta:hover {
     background-color: #EECC8C;
     cursor: pointer;
 }
@@ -51,18 +50,78 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'raleway';
     font-size: 15px;
 }
 
-/* .addHabit {
+@media screen and (max-width: 700px) {
+    .header {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .logo-img {
+        width: 25%;
+    }
+    .logo {
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navigation {
+        font-size: 12px;
+        display: flex;
+        flex-shrink: 1;
+    }
+}
+
+.body {
+    padding: 50px 150px;
+    height: 100vh;
+}
+
+.top-row {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.addHabit {
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #EECC8C;
     border: none;
+    margin-left: 32px;
+    color:#283E50;
+    transition-duration: 0.4s;
 }
 
+.addHabit:hover {
+    cursor: pointer;
+    background-color: #FF997A;
+}
 
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 46px;
+}
+
+.dates {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+}
+
+.day-row, .date-row {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 .streak {
     border: 1px solid black;
@@ -72,14 +131,13 @@ body {
     padding: 20px;
     margin-left: 50px;
 }
-.days, .dates {
+
+.footer {
     display: flex;
-    width: 600px;
-}
-
-p {
-    flex: 1;
-    text-align: center;
-    margin: 0;
-
+    justify-content: center;
+    background-color: #283E50;
+    color:#9AD0C3;
+    padding: 5px;
+    font-weight: 600;
+    font-size: small;
 }
