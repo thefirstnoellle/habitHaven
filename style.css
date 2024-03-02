@@ -9,9 +9,14 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    color: #9AD0C3;
     padding: 10px 75px;
     background-color: #283E50;
+}
+
+.header a {
+    text-decoration: none;
+    color: #9AD0C3;
+    margin: 16px;
 }
 
 .logo {
@@ -79,10 +84,14 @@ body {
     }
 }
 
-.body {
+.main {
     padding: 50px 150px;
     height: 100vh;
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    }
+
 
 .top-row {
     display: flex;
@@ -95,7 +104,6 @@ body {
     border-radius: 20px;
     background-color: #EECC8C;
     border: none;
-    margin-left: 32px;
     color:#283E50;
     transition-duration: 0.4s;
 }
@@ -105,12 +113,6 @@ body {
     background-color: #FF997A;
 }
 
-.main {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 46px;
-}
 
 .dates {
     display: flex;
@@ -123,14 +125,51 @@ body {
     justify-content: space-evenly;
 }
 
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .streak {
-    border: 1px solid black;
+    background-color: #FEEAD4;
+    color: #283E50;
     border-radius: 10px;
     width: 200px;
-    height: 100px;
     padding: 20px;
-    margin-left: 50px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
 }
+
+.streak p {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.diary {
+    background-color: #FEEAD4;
+    color: #283E50;
+    border-radius: 10px;
+    width: 200px;
+    height: 300px;
+    padding: 20px;
+    margin-top: 25px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.diary button {
+    padding: 10px 25px;
+    border-radius: 20px;
+    background-color: #EECC8C;
+    border: none;
+    color:#283E50;
+    transition-duration: 0.4s;
+}
+
 
 .footer {
     display: flex;
@@ -140,4 +179,13 @@ body {
     padding: 5px;
     font-weight: 600;
     font-size: small;
+}
+
+.main-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 60px;
+    width: 60%;
 }
