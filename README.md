@@ -9,9 +9,9 @@ Login to add more habits, track your streaks, or view your diary!
 
 To create a habit tracker that allows you you keep track of your daily, weekly, and monthly habits with a user-friendly interface that's minimalistic and modern, and focuses on promoting and maintaining habits by letting users view their current, and longest, streak.
 
-## :pencil: Motivation
+## 💡 Inspiration
 
-My motivation for this project was that I wanted an all-in-one app where I could keep track of my habits, encourage me to maintain streaks, as well as let me record my thoughts or any notes I had about that day's progress because one thing I've learned about myself is that I'm more motivated to reach my goals if I have an easy way to track of my progress! 
+My inspiration for this project was that I wanted an all-in-one app where I could keep track of my habits, be encouraged to maintain streaks, as well as let me record my thoughts or any notes I had about that day's progress because one thing I've learned about myself is that I'm more motivated to reach my goals if I have an easy way to track of my progress! 
 
 ## :computer: Built With
 
@@ -25,7 +25,7 @@ My motivation for this project was that I wanted an all-in-one app where I could
 This is my project for Get Coding Module 1. Thank you to my coach, Gillian, for her guidance and support while I work on this project!
 
 ### 🚧 View the Prototype
-This project is still a work in progress, view the current verison here: [thefirstnoellle.github.io/habitHaven/](thefirstnoellle.github.io/habitHaven/)
+This project is still a work in progress, view the current version here: [thefirstnoellle.github.io/habitHaven/](thefirstnoellle.github.io/habitHaven/)
 
 ![habitHaven-prototype](https://github.com/thefirstnoellle/habitHaven/assets/144460982/3c3188d0-43fc-47b0-8890-179efb67a99d)
 
