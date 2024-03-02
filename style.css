@@ -5,7 +5,6 @@ body {
     flex-direction: column;
 }
 
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -14,65 +13,55 @@ body {
     background-color: #283E50;
 }
 
-.logo-img {
-    width: 100px;
-}
-
 .logo {
     display: flex;
     align-items: center;
-    
+    font-family: 'Raleway';
+    font-size: 25px;
+    font-weight: 200;
+   }
+
+.logo-img {
+    width: 90px;
 }
 
 .links a {
     text-decoration: none;
-    color: #9AD0C3;
+    color: #FEEAD4;
+    margin: 16px;
 }
 
 .cta {
-    background-color:#FEEAD4;
+    background-color: #9AD0C3;
     border: none;
     border-radius: 10px;
     padding: 5px 20px;
-    margin-left: 50px;
+    margin-left: 32px;
     color:#283E50;
     transition-duration: 0.4s;
+    font-family: 'Raleway';
 }
 
 .cta:hover, .addHabit:hover {
     background-color: #EECC8C;
-    color: white;
     cursor: pointer;
 }
 
-.navbar {
+.navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.nav, .main {
-    display: flex;
-    justify-content: center;
+    font-family: 'raleway';
+    font-size: 15px;
 }
 
-.nav {
-    margin: 50px 25px;
-}
-
-h1 {
-    text-align: center;
-    width: 500px;
-    border: none;
-    display: inline-block;
-
-}
-
-.addHabit {
+/* .addHabit {
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #EECC8C;
     border: none;
 }
+
 
 
 .streak {
