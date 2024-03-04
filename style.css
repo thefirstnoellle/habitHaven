@@ -110,7 +110,7 @@ body {
 
 .addHabit:hover {
     cursor: pointer;
-    background-color: #FF997A;
+    background-color: #F6D8A0;
 }
 
 
@@ -132,7 +132,7 @@ body {
 }
 
 .streak {
-    background-color: #FEEAD4;
+    background-color: #feead4a0;
     color: #283E50;
     border-radius: 10px;
     width: 200px;
@@ -149,7 +149,7 @@ body {
 }
 
 .diary {
-    background-color: #FEEAD4;
+    background-color: #feead4a0;
     color: #283E50;
     border-radius: 10px;
     width: 200px;
@@ -170,7 +170,10 @@ body {
     transition-duration: 0.4s;
 }
 
-
+.diary button:hover {
+    cursor: pointer;
+    background-color: #F6D8A0;
+}
 .footer {
     display: flex;
     justify-content: center;
