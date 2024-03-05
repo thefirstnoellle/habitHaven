@@ -148,7 +148,7 @@ body {
     margin: 10px;
 }
 
-.diary-nav {
+.journal-nav {
     background-color: #feead4a0;
     color: #283E50;
     border-radius: 10px;
@@ -161,7 +161,7 @@ body {
     justify-content: space-around;
 }
 
-.diary-nav button {
+.journal-nav button {
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #EECC8C;
@@ -170,7 +170,7 @@ body {
     transition-duration: 0.4s;
 }
 
-.diary-nav button:hover {
+.journal-nav button:hover {
     cursor: pointer;
     background-color: #F6D8A0;
 }
