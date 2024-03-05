@@ -99,7 +99,7 @@ body {
 
 }
 
-.addHabit {
+.add-habit {
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #EECC8C;
@@ -108,19 +108,19 @@ body {
     transition-duration: 0.4s;
 }
 
-.addHabit:hover {
+.add-habit:hover {
     cursor: pointer;
     background-color: #F6D8A0;
 }
 
 
-.dates {
+.dates-row {
     display: flex;
     flex-direction: column;
     width: 800px;
 }
 
-.day-row, .date-row {
+.calendar-days, .calendar-dates {
     display: flex;
     justify-content: space-evenly;
 }
@@ -148,7 +148,7 @@ body {
     margin: 10px;
 }
 
-.diary {
+.diary-nav {
     background-color: #feead4a0;
     color: #283E50;
     border-radius: 10px;
@@ -161,7 +161,7 @@ body {
     justify-content: space-around;
 }
 
-.diary button {
+.diary-nav button {
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #EECC8C;
@@ -170,7 +170,7 @@ body {
     transition-duration: 0.4s;
 }
 
-.diary button:hover {
+.diary-nav button:hover {
     cursor: pointer;
     background-color: #F6D8A0;
 }
