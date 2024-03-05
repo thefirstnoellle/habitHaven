@@ -176,10 +176,10 @@ body {
 }
 .footer {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     background-color: #283E50;
     color:#9AD0C3;
-    padding: 5px;
+    padding: 10px 15px;
     font-weight: 600;
     font-size: small;
 }
