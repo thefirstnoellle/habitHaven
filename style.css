@@ -92,6 +92,7 @@ body {
     align-items: flex-start;
     }
 
+/* homepage css */
 
 .top-row {
     display: flex;
@@ -184,6 +185,8 @@ body {
     font-size: small;
 }
 
+/* about page css */
+
 .main-about {
     display: flex;
     flex-direction: column;
@@ -192,4 +195,74 @@ body {
     padding: 60px;
     width: 60%;
     height: 100vh;
+}
+
+/* journal page css */
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.title-label {
+    color: #9AD0C3;
+    background-color: #283E50;
+    margin: 10px; 
+    padding: 10px;
+}
+
+#entry-title {
+    width: 300px;
+    margin: 10px;
+    padding: 5px;
+    font-family: "Raleway";
+}
+
+.entry-label {
+    color: #9AD0C3;
+    background-color: #283E50;
+    margin: 10px; 
+    padding: 10px;
+}
+
+#journal-entry {
+    height: 300px;
+    margin: 10px;
+    font-family: "Raleway";
+    overflow: scroll;
+    padding: 10px;
+}
+
+.submit-entry {
+    padding: 10px 25px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: #EECC8C;
+    border: none;
+    color:#283E50;
+    transition-duration: 0.4s;
+    margin-left: auto;
+}
+
+.submit-entry:hover {
+    cursor: pointer;
+    background-color: #F6D8A0;
+}
+
+/* inspiration css */
+.inspiration-main {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.inspiration-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    width: 400px;
+    height: 400px;
+    margin-top: 100px;
 }
