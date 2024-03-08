@@ -25,7 +25,7 @@ My inspiration for this project was that I wanted an all-in-one app where I coul
 This is my project for Get Coding Module 1. Thank you to my coach, Gillian, for her guidance and support while I work on this project!
 
 ### 🚧 View the Prototype
-This project is still a work in progress, view the current version here: [thefirstnoellle.github.io/habitHaven/](thefirstnoellle.github.io/habitHaven/)
+This project is still a work in progress, view the current version here: [thefirstnoellle.github.io/habitHaven/](https://thefirstnoellle.github.io/habitHaven/)
 
 ![habitHaven-prototype](https://github.com/thefirstnoellle/habitHaven/assets/144460982/3c3188d0-43fc-47b0-8890-179efb67a99d)
 
