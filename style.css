@@ -36,6 +36,10 @@ body {
     margin: 16px;
 }
 
+.icon {
+    display: none;
+}
+
 .cta {
     background-color: #9AD0C3;
     border: none;
@@ -60,7 +64,7 @@ body {
 
 .main {
     padding: 50px 150px;
-    height: 200vh;
+    height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -159,8 +163,13 @@ body {
     padding: 10px 15px;
     font-weight: 600;
     font-size: small;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
+/* responsive design */
 @media screen and (max-width: 800px) {
     .header {
         width: 100%;
@@ -200,19 +209,12 @@ body {
 .journal-nav {
     display: none;
 }
-
+}
+@media screen and (max-width: 350px) {
+    
 }
 /* about page css */
 
-.main-about {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 50px auto;
-    padding: 60px;
-    width: 60%;
-    height: 100vh;
-}
 
 /* journal page css */
 
