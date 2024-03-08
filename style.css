@@ -213,7 +213,6 @@ body {
 @media screen and (max-width: 370px) {
     .links a:not(:first-child) {display: none;}
     .links a {
-      float: right;
       display: block;
       font-size: 20px;
     }
