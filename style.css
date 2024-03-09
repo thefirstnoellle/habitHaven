@@ -39,6 +39,10 @@ body {
     margin: 16px;
 }
 
+.links a:hover {
+    color: #A36361;
+}
+
 .icon {
     display: none;
 }
@@ -122,7 +126,9 @@ body {
     margin: 20px;
     height: 50px;
     padding: 20px;
+    border-radius: 10px;
 }
+
 
 .habit {
     background-color: #BDD1C5;
