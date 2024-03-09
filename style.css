@@ -3,27 +3,30 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    font-family: 'Raleway';
+    font-family: "Poppins";
+    font-weight: 400;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     padding: 10px 75px;
-    background-color: #283E50;
+    background-color: #E8B298;
+    font-family: "Poppins";
 }
 
 .header a {
     text-decoration: none;
-    color: #9AD0C3;
-    margin: 16px;
+    color: #A36361;
+    margin: 5px;
 }
 
 .logo {
     display: flex;
     align-items: center;
     font-size: 25px;
-    font-weight: 200;
+    letter-spacing: 1px;
+    font-family: "Abril Fatface";
    }
 
 .logo-img {
@@ -41,17 +44,19 @@ body {
 }
 
 .cta {
-    background-color: #9AD0C3;
+    background-color: #A36361;
     border: none;
-    border-radius: 10px;
-    padding: 5px 20px;
+    border-radius: 20px;
+    padding: 10px 30px;
     margin-left: 32px;
-    color:#283E50;
+    color: white;
     transition-duration: 0.4s;
+    font-family: "Poppins";
 }
 
 .cta:hover {
-    background-color: #EECC8C;
+    background-color: #FEEAD4;
+    color: #A36361;
     cursor: pointer;
 }
 
@@ -68,7 +73,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    }
+}
 
 /* homepage css */
 
@@ -82,28 +87,53 @@ body {
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #EECC8C;
+    color: #283E50;
     border: none;
-    color:#283E50;
     transition-duration: 0.4s;
+    font-family: "Poppins";
 }
 
 .add-habit:hover {
     cursor: pointer;
-    background-color: #F6D8A0;
+    background-color: #D3A29D;
+    color: white;
+    font-weight: 500;
 }
 
 
-.habit-container {
+.main-container {
     display: flex;
     flex-direction: column;
     width: 75%;
-    height: 300px;
     flex-shrink: 0;
 }
 
 .calendar-days, .calendar-dates {
     display: flex;
     justify-content: space-evenly;
+}
+
+.habit-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.habit, .habit2, .habit3 {
+    margin: 20px;
+    height: 50px;
+    padding: 20px;
+}
+
+.habit {
+    background-color: #BDD1C5;
+}
+
+.habit2 {
+    background-color: #D3A29D;
+}
+
+.habit3 {
+    background-color: #9EABA2;
 }
 
 .right-nav {
@@ -142,14 +172,25 @@ body {
     flex-direction: column;
 }
 
+.journal-nav {
+    background-color: #feead4a0;
+    border-radius: 10px;
+    width: 200px;
+    height: 300px;
+    padding: 20px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 textarea {
     resize: none;
     height: 75%;
     width: 90%;
     background-color: #feead4a0;
     border: none;
-    font-family: "Raleway";
-    font-weight: 600;
+    font-family: "Poppins";
     padding: 10px;
     margin-bottom: 10px;
   }
@@ -159,19 +200,21 @@ textarea {
     border-radius: 20px;
     background-color: #EECC8C;
     border: none;
-    color:#283E50;
+    color: #283E50;
     transition-duration: 0.4s;
 }
 
 .journal-nav button:hover {
+    background-color: #D3A29D;
+    color: white;
     cursor: pointer;
-    background-color: #F6D8A0;
 }
+
 .footer {
     display: flex;
     justify-content: flex-end;
-    background-color: #283E50;
-    color:#9AD0C3;
+    background-color: #E8B298;
+    color: #A36361;
     padding: 10px 15px;
     font-weight: 600;
     font-size: small;
@@ -182,7 +225,7 @@ textarea {
 }
 
 /* responsive design */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
     .header {
         width: 100%;
         padding: 10px;
@@ -230,6 +273,7 @@ textarea {
       font-size: 20px;
     }
   }
+
 /* about page css */
 
 .about {
@@ -246,36 +290,37 @@ textarea {
 .entry {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 500px;
 }
 
 .title-label {
-    color: #9AD0C3;
-    background-color: #283E50;
+    color: white;
+    background-color: #A36361;
     margin: 10px; 
-    padding: 10px;
+    padding: 10px 50px;
 }
 
 #entry-title {
     width: 300px;
     margin: 10px;
     padding: 5px;
-    font-family: "Raleway";
 }
 
 .entry-label {
-    color: #9AD0C3;
-    background-color: #283E50;
+    color: white;
+    background-color: #A36361;
     margin: 10px; 
-    padding: 10px;
+    padding: 10px 50px;
 }
 
 #journal-entry {
     height: 300px;
     margin: 10px;
-    font-family: "Raleway";
+    font-family: "Poppins";
     overflow: scroll;
     padding: 10px;
+    background-color: #feead4a0;
 }
 
 .submit-entry {
@@ -286,7 +331,7 @@ textarea {
     border: none;
     color:#283E50;
     transition-duration: 0.4s;
-    margin-left: auto;
+    font-family: "Poppins";
 }
 
 .submit-entry:hover {
