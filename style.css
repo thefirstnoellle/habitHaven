@@ -129,10 +129,32 @@ body {
     margin: 10px;
 }
 
+.journal-nav {
+    background-color: #feead4a0;
+    color: #283E50;
+    border-radius: 10px;
+    width: 200px;
+    height: 300px;
+    padding: 20px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
+textarea {
+    resize: none;
+    height: 75%;
+    width: 90%;
+    background-color: #feead4a0;
+    border: none;
+    font-family: "Raleway";
+    font-weight: 600;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
 
 .journal-nav button {
-    margin-top: 30px;
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #EECC8C;
@@ -173,6 +195,11 @@ body {
     .logo-img {
         width: 25%;
     }
+
+    .logo-img-link {
+        display: none;
+    }
+    
     .logo {
         font-size: 15px;
         display: flex;
@@ -190,12 +217,11 @@ body {
         margin: 0;
         padding: 10px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        align-content: center;
-        align-items: center;
+        justify-content: center;
     }
+
 }
 @media screen and (max-width: 370px) {
     .links a:not(:first-child) {display: none;}
@@ -206,6 +232,14 @@ body {
   }
 /* about page css */
 
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.socials img {
+    height: 75px;
+}
 
 /* journal page css */
 
