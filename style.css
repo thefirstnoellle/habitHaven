@@ -3,27 +3,30 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    font-family: 'Raleway';
+    font-family: "Poppins";
+    font-weight: 400;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     padding: 10px 75px;
-    background-color: #9EABA2;
+    background-color: #E8B298;
+    font-family: "Poppins";
 }
 
 .header a {
     text-decoration: none;
-    color: #9AD0C3;
-    margin: 16px;
+    color: #A36361;
+    margin: 5px;
 }
 
 .logo {
     display: flex;
     align-items: center;
     font-size: 25px;
-    font-weight: 200;
+    letter-spacing: 1px;
+    font-family: "Abril Fatface";
    }
 
 .logo-img {
@@ -41,17 +44,19 @@ body {
 }
 
 .cta {
-    background-color: #9AD0C3;
+    background-color: #A36361;
     border: none;
-    border-radius: 10px;
-    padding: 5px 20px;
+    border-radius: 20px;
+    padding: 10px 30px;
     margin-left: 32px;
-    color:#283E50;
+    color: white;
     transition-duration: 0.4s;
+    font-family: "Poppins";
 }
 
 .cta:hover {
-    background-color: #EECC8C;
+    background-color: #FEEAD4;
+    color: #A36361;
     cursor: pointer;
 }
 
@@ -68,7 +73,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    }
+}
 
 /* homepage css */
 
@@ -82,14 +87,17 @@ body {
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #EECC8C;
+    color: #283E50;
     border: none;
-    color:#283E50;
     transition-duration: 0.4s;
+    font-family: "Poppins";
 }
 
 .add-habit:hover {
     cursor: pointer;
-    background-color: #F6D8A0;
+    background-color: #D3A29D;
+    color: white;
+    font-weight: 500;
 }
 
 
@@ -133,7 +141,6 @@ body {
 
 .journal-nav {
     background-color: #feead4a0;
-    color: #283E50;
     border-radius: 10px;
     width: 200px;
     height: 300px;
@@ -150,8 +157,7 @@ textarea {
     width: 90%;
     background-color: #feead4a0;
     border: none;
-    font-family: "Raleway";
-    font-weight: 600;
+    font-family: "Poppins";
     padding: 10px;
     margin-bottom: 10px;
   }
@@ -161,15 +167,21 @@ textarea {
     border-radius: 20px;
     background-color: #EECC8C;
     border: none;
-    color:#283E50;
+    color: #283E50;
     transition-duration: 0.4s;
+}
+
+.journal-nav button:hover {
+    background-color: #D3A29D;
+    color: white;
+    cursor: pointer;
 }
 
 .footer {
     display: flex;
     justify-content: flex-end;
-    background-color: #9EABA2;
-    color:#9AD0C3;
+    background-color: #E8B298;
+    color: #A36361;
     padding: 10px 15px;
     font-weight: 600;
     font-size: small;
@@ -246,36 +258,37 @@ textarea {
 .entry {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 500px;
 }
 
 .title-label {
-    color: #9AD0C3;
-    background-color: #283E50;
+    color: white;
+    background-color: #A36361;
     margin: 10px; 
-    padding: 10px;
+    padding: 10px 50px;
 }
 
 #entry-title {
     width: 300px;
     margin: 10px;
     padding: 5px;
-    font-family: "Raleway";
 }
 
 .entry-label {
-    color: #9AD0C3;
-    background-color: #283E50;
+    color: white;
+    background-color: #A36361;
     margin: 10px; 
-    padding: 10px;
+    padding: 10px 50px;
 }
 
 #journal-entry {
     height: 300px;
     margin: 10px;
-    font-family: "Raleway";
+    font-family: "Poppins";
     overflow: scroll;
     padding: 10px;
+    background-color: #feead4a0;
 }
 
 .submit-entry {
@@ -286,7 +299,7 @@ textarea {
     border: none;
     color:#283E50;
     transition-duration: 0.4s;
-    margin-left: auto;
+    font-family: "Poppins";
 }
 
 .submit-entry:hover {
