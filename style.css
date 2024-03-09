@@ -101,17 +101,39 @@ body {
 }
 
 
-.habit-container {
+.main-container {
     display: flex;
     flex-direction: column;
     width: 75%;
-    height: 300px;
     flex-shrink: 0;
 }
 
 .calendar-days, .calendar-dates {
     display: flex;
     justify-content: space-evenly;
+}
+
+.habit-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.habit, .habit2, .habit3 {
+    margin: 20px;
+    height: 50px;
+    padding: 20px;
+}
+
+.habit {
+    background-color: #BDD1C5;
+}
+
+.habit2 {
+    background-color: #D3A29D;
+}
+
+.habit3 {
+    background-color: #9EABA2;
 }
 
 .right-nav {
@@ -136,7 +158,6 @@ body {
     font-weight: 700;
     margin: 10px;
 }
-
 
 
 .journal-nav {
@@ -192,7 +213,7 @@ textarea {
 }
 
 /* responsive design */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
     .header {
         width: 100%;
         padding: 10px;
