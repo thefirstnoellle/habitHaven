@@ -101,7 +101,6 @@ body {
     cursor: pointer;
     background-color: #D3A29D;
     color: white;
-    font-weight: 500;
 }
 
 
@@ -121,12 +120,16 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 .habit, .habit2, .habit3 {
     margin: 20px;
-    height: 50px;
-    padding: 20px;
+    height: 20px;
+    padding: 30px;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -140,6 +143,34 @@ body {
 
 .habit3 {
     background-color: #9EABA2;
+}
+
+.progress {
+    width: 60px;
+    margin: 0;
+}
+
+
+input[type=submit] {
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #EECC8C;
+    color: #283E50;
+    border: none;
+    transition-duration: 0.4s;
+    font-family: "Poppins";
+    font-size: 10px;
+    margin-left: 10px;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #FEEAD4;
+    color: #A36361;
+}
+
+input[type=radio] {
+   accent-color: #A36361;
 }
 
 .right-nav {
