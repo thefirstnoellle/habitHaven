@@ -159,6 +159,18 @@ body {
     margin: 10px;
 }
 
+.journal-nav {
+    background-color: #feead4a0;
+    color: #283E50;
+    border-radius: 10px;
+    width: 200px;
+    height: 300px;
+    padding: 20px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
 .journal-nav {
     background-color: #feead4a0;
@@ -272,7 +284,6 @@ textarea {
 .socials img {
     height: 75px;
 }
-
 
 /* journal page css */
 
