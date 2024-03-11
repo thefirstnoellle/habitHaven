@@ -257,7 +257,7 @@ textarea {
     font-size: small;
     width: 100%;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     right: 0;
 }
 
@@ -303,7 +303,23 @@ textarea {
     }
 
 }
-@media screen and (max-width: 370px) {
+
+@media screen and (max-width: 750px) {
+    .habit, .habit2, .habit3 {
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+  .form {
+    margin: 10px
+  }
+}
+
+@media screen and (max-width: 375px) {
     .links a:not(:first-child) {display: none;}
     .links a {
       display: block;
