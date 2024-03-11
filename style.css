@@ -1,11 +1,11 @@
 body {
     box-sizing: border-box;
     margin: 0;
-    display: flex;
-    flex-direction: column;
     font-family: "Poppins";
     font-weight: 400;
 }
+
+/* Index CSS */
 
 .header {
     display: flex;
@@ -122,7 +122,7 @@ body {
     flex-wrap: wrap;
     margin-top: 20px;
 }
-.habit, .habit2, .habit3 {
+.firstHabit, .secondHabit, .thirdHabit {
     margin: 20px;
     height: 20px;
     padding: 30px;
@@ -133,15 +133,15 @@ body {
 }
 
 
-.habit {
+.firstHabit {
     background-color: #BDD1C5;
 }
 
-.habit2 {
+.secondHabit {
     background-color: #D3A29D;
 }
 
-.habit3 {
+.thirdHabit {
     background-color: #9EABA2;
 }
 
@@ -273,10 +273,6 @@ textarea {
     }
     
     .logo-img {
-        width: 25%;
-    }
-
-    .logo-img-link {
         display: none;
     }
     
@@ -305,7 +301,7 @@ textarea {
 }
 
 @media screen and (max-width: 750px) {
-    .habit, .habit2, .habit3 {
+    .firstHabit, .secondHabit, .thirdHabit {
         height: fit-content;
         display: flex;
         flex-direction: column;
@@ -314,8 +310,8 @@ textarea {
         padding: 15px;
     }
 
-  .form {
-    margin: 10px
+  .habitForm {
+    margin: 10px;
   }
 }
 
@@ -325,9 +321,13 @@ textarea {
       display: block;
       font-size: 20px;
     }
+
+    .habitForm {
+        margin-left: 0;
+    }
   }
 
-/* about page css */
+/* About page CSS */
 
 .about {
     display: flex;
@@ -338,7 +338,7 @@ textarea {
     height: 75px;
 }
 
-/* journal page css */
+/* Journal page CSS */
 
 .entry {
     display: flex;
@@ -392,7 +392,7 @@ textarea {
     background-color: #F6D8A0;
 }
 
-/* inspiration css */
+/* Inspiration  page CSS */
 .inspiration-main {
     display: flex;
     flex-direction: column;
