@@ -73,7 +73,7 @@ body {
 
 .main {
     padding: 50px 150px;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -230,6 +230,7 @@ textarea {
     font-family: "Poppins";
     padding: 10px;
     margin-bottom: 10px;
+    outline: none;
   }
 
 .journal-nav button {
@@ -371,12 +372,12 @@ textarea {
     height: 300px;
     margin: 10px;
     font-family: "Poppins";
-    overflow: scroll;
+    overflow: auto;
     padding: 10px;
     background-color: #feead4a0;
 }
 
-.submit-entry {
+#save-entry {
     padding: 10px 25px;
     width: 100px;
     border-radius: 20px;
@@ -387,10 +388,17 @@ textarea {
     font-family: "Poppins";
 }
 
-.submit-entry:hover {
+#save-entry:hover {
     cursor: pointer;
     background-color: #F6D8A0;
 }
+
+.journal-container {
+    background-color: red;
+    color: white;
+}
+
+
 
 /* Inspiration  page CSS */
 .inspiration-main {
