@@ -393,6 +393,12 @@ textarea {
     background-color: #F6D8A0;
 }
 
+#journal-container p {
+    background-color: #feead4a0;
+    width: 200px;
+    padding: 10px;
+}
+
 
 
 

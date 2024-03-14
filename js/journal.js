@@ -1,11 +1,16 @@
-let textarea = document.getElementById("journal-entry");
-let saveButton = document.getElementById("save-entry");
-let journalContainer = document.getElementById=("journal-container");
 
-    saveButton.addEventListener("click", function() {
-        let inputData = textarea.value;
-        journalContainer.textContent = inputData;
-        console.log("I clicked the save button");
-    });
+const journalEntry = document.getElementById("journal-entry");
+const saveBtn = document.getElementById("save-entry");
+const displayJournal = document.getElementById("journal-container");
 
-// addEventListener is working to acknowledge it was clicked but not working to move journal to container
+
+saveBtn.addEventListener('click', function() {
+
+    const inputText = journalEntry.value;
+    const paragraph = document.createElement('p');
+    paragraph.textContent = inputText;
+    
+    displayJournal.appendChild(paragraph);
+
+});
+
