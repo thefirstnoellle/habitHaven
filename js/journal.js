@@ -3,7 +3,6 @@ const journalEntry = document.getElementById("journal-entry");
 const saveBtn = document.getElementById("save-entry");
 const displayJournal = document.getElementById("journal-container");
 
-
 saveBtn.addEventListener('click', function() {
 
     const inputText = journalEntry.value;
@@ -12,5 +11,6 @@ saveBtn.addEventListener('click', function() {
     
     displayJournal.appendChild(paragraph);
 
+    journalEntry.value = '';
 });
 
