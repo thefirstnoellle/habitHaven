@@ -335,8 +335,17 @@ textarea {
     flex-direction: column;
     align-items: center;
 }
+
+.about h2, h3 {
+    color:#A36361;
+}
+
 .socials img {
     height: 75px;
+}
+
+.socials img:hover {
+    opacity: 50%;
 }
 
 /* Journal page CSS */
