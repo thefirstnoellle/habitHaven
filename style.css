@@ -375,7 +375,7 @@ textarea {
 .entry {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     width: 500px;
 }
 
@@ -383,20 +383,32 @@ textarea {
     color: white;
     background-color: #A36361;
     margin: 10px; 
-    padding: 10px 50px;
+    padding: 10px 25px;
+}
+
+#date-selector {
+    font-family: "Poppins";
+    border: 1px solid #EECC8C;
+    outline: none;
+    margin: 10px;
+    padding: 5px;
+    width: 50%;
 }
 
 #entry-title {
     width: 300px;
     margin: 10px;
-    padding: 5px;
+    padding: 10px;
+    background-color: #feead4a0;
+    font-family: "Poppins";
+    border: none;
 }
 
 .entry-label {
     color: white;
-    background-color: #A36361;
+    background-color: hsl(2, 26%, 51%);
     margin: 10px; 
-    padding: 10px 50px;
+    padding: 10px 25px;
 }
 
 #journal-entry {
@@ -412,6 +424,8 @@ textarea {
     padding: 10px 25px;
     width: 100px;
     border-radius: 20px;
+    margin-left: auto;
+    margin-right: 10px;
     background-color: #EECC8C;
     border: none;
     color:#283E50;
