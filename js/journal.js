@@ -13,4 +13,3 @@ saveBtn.addEventListener('click', function() {
 
     journalEntry.value = '';
 });
-
