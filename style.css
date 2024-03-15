@@ -359,14 +359,41 @@ textarea {
     width: 50%;
 }
 
-.inspiration-image {
+.inspiration-main h3, .inspiration-main h2 {
+    color: #A36361;
+}
+
+#quote-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: grey;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 20px;
+}
+
+#quote-container h2 {
+    margin-bottom: 0;
+    color: #9EABA2;
+}
+
+#quote-container p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.inspiration-image {
+    text-align: center;
+    background-color: #feead4a0;
     width: 400px;
     height: 400px;
     margin-top: 100px;
+}
+
+ul {
+    padding: 20px;
+}
+
+ul a {
+    color: black;
 }
 
 
