@@ -518,11 +518,16 @@ ul a {
     background-color: #feead4a0;
 }
 
+.journal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
 #save-entry {
     padding: 10px 25px;
     width: 100px;
     border-radius: 20px;
-    margin-left: auto;
     margin-right: 10px;
     background-color: #EECC8C;
     border: none;
@@ -536,13 +541,28 @@ ul a {
     background-color: #F6D8A0;
 }
 
+#delete-entry {
+    padding: 9px 20px;
+    width: 120px;
+    border-radius: 20px;
+    border: 2px solid #EECC8C;
+    background-color: white;
+    color:#283E50;
+    transition-duration: 0.4s;
+    font-family: "Poppins";
+}
+
+#delete-entry:hover {
+    cursor: pointer;
+    background-color: #F6D8A0;
+    border: none;
+}
+
 #journal-container p {
     background-color: #feead4a0;
     width: 400px;
     padding: 16px;
     font-size: 14px;
 }
-
-
 
 

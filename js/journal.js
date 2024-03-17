@@ -1,9 +1,4 @@
-
-const dateSelector = document.getElementById("date-selector");
-const journalEntry = document.getElementById("journal-entry");
-const saveBtn = document.getElementById("save-entry");
-const displayJournal = document.getElementById("journal-container");
-
+// navigation JS
 function goToHome() {
     window.location.href = "index.html";
 }
@@ -12,13 +7,20 @@ function goToAbout() {
     window.location.href = "about.html";
 }
 
-function goToInspiration() {
+function goToInspiratsion() {
     window.location.href = "inspiration.html";
 }
 
 function goToJournal() {
     window.location.href = "journal.html";
 }
+
+// journal entry event
+const dateSelector = document.getElementById("date-selector");
+const journalEntry = document.getElementById("journal-entry");
+const saveBtn = document.getElementById("save-entry");
+const displayJournal = document.getElementById("journal-container");
+const deleteEntry = document.getElementById("delete-entry");
 
 window.addEventListener('load', function() {
     const savedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
@@ -38,15 +40,20 @@ saveBtn.addEventListener('click', function() {
         return;
     }
 
-    const paragraph = document.createElement('p');
-    paragraph.textContent = `Date: ${selectedDate}, Entry: ${inputText}`;
-    
-    displayJournal.appendChild(paragraph);
-    
-    const savedEntries = JSON.parse(localStorage.getItem('journalEntries'));
-    savedEntries.push(inputText);
-    localStorage.setItem('journalEntries', JSON.stringify(savedEntries));
-    
-    dateSelector.value = '';
-    journalEntry.value = '';
+const paragraph = document.createElement('p');
+paragraph.textContent = `Date: ${selectedDate}, Entry: ${inputText}`;
+
+displayJournal.appendChild(paragraph);
+
+const savedEntries = JSON.parse(localStorage.getItem('journalEntries'));
+savedEntries.push(inputText);
+localStorage.setItem('journalEntries', JSON.stringify(savedEntries));
+
+dateSelector.value = '';
+journalEntry.value = '';
 });
+
+deleteEntry.addEventListener("click", function(){
+    localStorage.removeItem("journalEntries");
+    displayJournal.innerHTML = "";
+})
