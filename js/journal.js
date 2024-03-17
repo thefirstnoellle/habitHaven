@@ -4,6 +4,22 @@ const journalEntry = document.getElementById("journal-entry");
 const saveBtn = document.getElementById("save-entry");
 const displayJournal = document.getElementById("journal-container");
 
+function goToHome() {
+    window.location.href = "index.html";
+}
+
+function goToAbout() {
+    window.location.href = "about.html";
+}
+
+function goToInspiration() {
+    window.location.href = "inspiration.html";
+}
+
+function goToJournal() {
+    window.location.href = "journal.html";
+}
+
 window.addEventListener('load', function() {
     const savedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
     savedEntries.forEach(entry => {

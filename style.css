@@ -24,22 +24,35 @@ body {
 .logo {
     display: flex;
     align-items: center;
+   }
+
+#home {
+    background-color: #E8B298;
+    border: none;
     font-size: 28px;
     font-family: "Poppins";
-    font-weight: 600;
-   }
+    font-weight: 300;
+    color:#A36361;
+    cursor: pointer;
+}
 
 .logo-img {
     width: 90px;
 }
 
-.links a {
-    text-decoration: none;
+.page-links {
+    display: flex;
+}
+.page-links button {
+    background-color: #E8B298;
+    border: none;
+    margin: auto;
     color: #FEEAD4;
     margin: 16px;
+    font-family: "Poppins";
 }
 
-.links a:hover {
+.page-links button:hover {
     color: #A36361;
 }
 
