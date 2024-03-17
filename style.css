@@ -24,9 +24,9 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    font-size: 25px;
-    letter-spacing: 1px;
-    font-family: "Abril Fatface";
+    font-size: 28px;
+    font-family: "Poppins";
+    font-weight: 600;
    }
 
 .logo-img {
@@ -467,7 +467,7 @@ ul a {
 
 #journal-container p {
     background-color: #feead4a0;
-    width: 200px;
+    width: 400px;
     padding: 16px;
     font-size: 14px;
 }
