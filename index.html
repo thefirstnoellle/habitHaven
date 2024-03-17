@@ -91,7 +91,24 @@
 
         </div>   
         <div class="right-nav">
-            <button class="add-habit">Add Habit +</button>
+            <button id="add-habit">Add Habit +</button>
+                    <!-- The Modal -->
+                    <div id="myModal" class="habitModal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>Add New Habit</h2>
+                            <label for="habitName">Habit Name:</label><br>
+                            <input type="text" id="habitName"><br>
+                            <label for="goal">Goal:</label><br>
+                            <input type="text" id="goal"><br>
+                            <button id="saveHabit">Save</button>
+                        </div>
+            
+                        </div>
+
+    
             <div class="streak">Current Streak:
                 <p>0</p>
             </div>
