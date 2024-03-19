@@ -438,7 +438,7 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin: 20px;
+    margin: 0px;
 }
 
 #quote-container h2 {
@@ -447,16 +447,13 @@ textarea {
 }
 
 #quote-container p {
-    margin: 0;
     font-size: 14px;
 }
 
-.inspiration-image {
-    text-align: center;
-    background-color: #feead4a0;
-    width: 400px;
-    height: 400px;
+.inspiration-image img {
+    width: 500px;
     margin-top: 100px;
+    border-radius: 10px;
 }
 
 ul {
