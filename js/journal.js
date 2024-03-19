@@ -7,7 +7,7 @@ function goToAbout() {
     window.location.href = "about.html";
 }
 
-function goToInspiratsion() {
+function goToInspiration() {
     window.location.href = "inspiration.html";
 }
 

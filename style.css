@@ -401,11 +401,7 @@ textarea {
 
 /* About page CSS */
 
-.about {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
+
 
 #about {
     width: 70%;
@@ -415,6 +411,10 @@ textarea {
     color:#A36361;
 }
 
+#arcade {
+    background-color: #9EABA2;
+    height: 400px;
+}
 .socials img {
     height: 75px;
 }

@@ -52,39 +52,36 @@
 
             <div class="habit-container">
                 <div class="firstHabit">Drink water
-                    <form class="habitForm">
-                    <input type="radio" id="25" name="habit">
-                    <label for="25">25 oz</label>
-                    <input type="radio" id="50" name="habit">
-                    <label for="50">50 oz</label>
-                    <input type="radio" id="100" name="habit">
-                    <label for="100">100 oz</label>
-                    <input type="submit" value="Complete">
+                    <form class="habitForm" id="habitForm">
+                        <input type="radio" value="25" id="25" name="habit">
+                        <label for="1">25 oz</label>
+                        <input type="radio" value="50" id="50" name="habit">
+                        <label for="5">50 oz</label>
+                        <input type="radio" value="100" id="100" name="habit">
+                        <label for="10">100 oz</label>
+                    <input type="submit" value="Submit" id="complete">
                   </form>
-                  <div><img src="images/progress-0.png" class="progress"></div>
+                  <div><img src="images/progress-0.png" class="progress" id="progress"></div>
                 </div>
                 <div class="secondHabit">Go for a walk
-                    <form class="habitForm">
-                        <input type="radio" id="1" name="habit">
+                    <form class="habitForm" id="habitForm">
+                        <input type="radio" value="25" id="25" name="habit">
                         <label for="1">1 km</label>
-                        <input type="radio" id="5" name="habit">
+                        <input type="radio" value="50" id="50" name="habit">
                         <label for="5">5 km</label>
-                        <input type="radio" id="10" name="habit">
+                        <input type="radio" value="100" id="100" name="habit">
                         <label for="10">10 km</label>
-                        <input type="submit" value="Complete">
+                        <input type="submit" value="Submit" id="complete">
                       </form>
                       <div><img src="images/progress-25.png" class="progress"></div>
                 </div>
                 <div class="thirdHabit">Meditate
-                    <form class="habitForm">
-                        <input type="radio" id="1" name="habit">
-                        <label for="1">1 min</label>
-                        <input type="radio" id="50" name="habit">
-                        <label for="50">5 min</label>
-                        <input type="radio" id="100" name="habit">
-                        <label for="100">10 min</label>
-                        <input type="submit" value="Complete" name="habit">
-                      </form>
+                    <select id="habit-progress">
+                        <option value="0" selected></option>
+                        <option value="25">2 minutes</option>
+                        <option value="50">5 minutes</option>
+                        <option value="100">10 minutes</option>
+                    </select>
                       <div><img src="images/progress-100.png" class="progress"></div>
                 </div>
             </div>
