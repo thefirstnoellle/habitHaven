@@ -388,8 +388,8 @@ textarea {
 }
 
 @media screen and (max-width: 375px) {
-    .links a:not(:first-child) {display: none;}
-    .links a {
+    .page-links button:not(:first-child) {display: none;}
+    .page-links button {
       display: block;
       font-size: 20px;
     }
