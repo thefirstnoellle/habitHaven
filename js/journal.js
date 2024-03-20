@@ -15,6 +15,10 @@ function goToJournal() {
     window.location.href = "journal.html";
 }
 
+function goToLogin() {
+    window.location.href = "login.html";
+}
+
 // journal entry event
 const dateSelector = document.getElementById("date-selector");
 const journalEntry = document.getElementById("journal-entry");
@@ -22,14 +26,14 @@ const saveBtn = document.getElementById("save-entry");
 const displayJournal = document.getElementById("journal-container");
 const deleteEntry = document.getElementById("delete-entry");
 
-window.addEventListener('load', function() {
+/* window.addEventListener('load', function() {
     const savedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
     savedEntries.forEach(entry => {
         const paragraph = document.createElement('p');
         paragraph.textContent = entry;
         displayJournal.appendChild(paragraph);
     });
-});
+}); */
 
 saveBtn.addEventListener('click', function() {
     const inputText = journalEntry.value;
@@ -41,7 +45,7 @@ saveBtn.addEventListener('click', function() {
     }
 
 const paragraph = document.createElement('p');
-paragraph.textContent = `Date: ${selectedDate}, Entry: ${inputText}`;
+paragraph.textContent = `${selectedDate}, ${inputText}`;
 
 displayJournal.appendChild(paragraph);
 
@@ -56,4 +60,4 @@ journalEntry.value = '';
 deleteEntry.addEventListener("click", function(){
     localStorage.removeItem("journalEntries");
     displayJournal.innerHTML = "";
-})
+});
