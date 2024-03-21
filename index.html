@@ -50,7 +50,7 @@
                 <p>7</p>
             </div>
 
-            <div class="habit-container">
+            <div class="habit-container" id="habitContainer">
                 <div class="firstHabit">Drink water
                     <form class="habitForm" id="habitForm">
                         <input type="radio" value="25" id="25" name="habit">
@@ -76,13 +76,16 @@
                       <div><img src="images/progress-25.png" class="progress"></div>
                 </div>
                 <div class="thirdHabit">Meditate
-                    <select id="habit-progress">
-                        <option value="0" selected></option>
-                        <option value="25">2 minutes</option>
-                        <option value="50">5 minutes</option>
-                        <option value="100">10 minutes</option>
-                    </select>
-                      <div><img src="images/progress-100.png" class="progress"></div>
+                    <form class="habitForm" id="habitForm">
+                        <input type="radio" value="25" id="25" name="habit">
+                        <label for="1">1 min</label>
+                        <input type="radio" value="50" id="50" name="habit">
+                        <label for="5">5 min</label>
+                        <input type="radio" value="100" id="100" name="habit">
+                        <label for="10">10 min</label>
+                        <input type="submit" value="Submit" id="complete">
+                      </form>
+                      <div><img src="images/progress-25.png" class="progress"></div>
                 </div>
             </div>
 
@@ -91,12 +94,17 @@
             <button id="add-habit">Add Habit +</button>
                 <div id="myModal" class="habitModal">
                     <div class="modal-content">
-                        <span class="close">&times;</span>
+                        <span id="close">&times;</span>
                         <h2>Add New Habit</h2>
                         <label for="habitName">Habit Name:</label><br>
                         <input type="text" id="habitName"><br>
                         <label for="goal">Goal:</label><br>
-                        <input type="text" id="goal"><br>
+                        <input type="text" id="habitGoal"><br>
+                        <select id="selectUnit">
+                            <option value="minutes">Mins</option>
+                            <option value="hours">Hours</option>
+                            <option value="kilometers">KM</option>
+                        </select>
                         <button id="saveHabit">Save</button>
                     </div>
                 </div>

@@ -145,14 +145,14 @@ body {
     padding: 5px;
   }
 
-  .close {
+  #close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
   
-  .close:hover {
+  #close:hover {
     color: #A36361;
     text-decoration: none;
     cursor: pointer;

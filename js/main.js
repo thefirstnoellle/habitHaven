@@ -19,41 +19,49 @@ function goToLogin() {
   window.location.href = "login.html";
 }
 
-// Get the modal
+// Get modal
 const modal = document.getElementById("myModal");
-// Get the button that opens the modal
+// Get button that opens the modal
 const btn = document.getElementById("add-habit");
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
-// Save habit when clicked
-const saveHabit = document.getElementById("saveHabit");
-const newHabit = document.getElementsByClassName("habit-container");
+// Get element that closes the modal
+const closeModal = document.getElementById("close");
 
 // When the user clicks the button, open the modal 
 btn.addEventListener("click", function() {
   modal.style.display = "block";
 });
 
-// When the user clicks save, a new habit is added* 
-saveHabit.addEventListener("click", function(){
-    
-});
-
 // When the user clicks on x, modal closes
-span.addEventListener("click", function() {
+closeModal.addEventListener("click", function() {
   modal.style.display = "none";
 });
 
-// When the user clicks anywhere outside of the modal, it closes
+// When the user clicks anywhere outside of the modal, modal closes
 window.addEventListener("click", function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 });
 
+const saveHabit = document.getElementById("saveHabit");
+const habitName = document.getElementById("habitName");
+const habitGoal = document.getElementById("habitGoal");
+const unit = document.getElementById("selectUnit");
+
+// Save Habit
+const habitElement = document.createElement("div");
+const habitContainer = document.getElementById("habitContainer");
+
+saveHabit.addEventListener("click", function() {
+    habitElement.textContent = habitName.value + " - Goal: " + habitGoal.value + " " + unit.value + " " + unit;
+    habitContainer.appendChild(habitElement);
+
+    modal.style.display = "none";
+});
+
+// Create functions to change with progress using radio buttons
 const radioButtons = document.querySelectorAll('input[type="radio"][name="habit"]');
   
-
 function functionFor25() {
   const progress25 = document.getElementById("progress");
   progress.src="images/progress-25.png";
@@ -85,3 +93,4 @@ function functionFor100() {
           }
       });
   });
+

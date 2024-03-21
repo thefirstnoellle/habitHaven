@@ -26,38 +26,42 @@ const saveBtn = document.getElementById("save-entry");
 const displayJournal = document.getElementById("journal-container");
 const deleteEntry = document.getElementById("delete-entry");
 
-/* window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     const savedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
     savedEntries.forEach(entry => {
         const paragraph = document.createElement('p');
-        paragraph.textContent = entry;
+        paragraph.textContent = entry.date + ": " + entry.text;
         displayJournal.appendChild(paragraph);
     });
-}); */
+});
 
-saveBtn.addEventListener('click', function() {
+saveBtn.addEventListener('click', function () {
     const inputText = journalEntry.value;
     const selectedDate = dateSelector.value;
 
-       if (!inputText || !selectedDate) {
+    if (!inputText || !selectedDate) {
         alert("Please enter both the journal entry and select a date.");
         return;
     }
 
-const paragraph = document.createElement('p');
-paragraph.textContent = `${selectedDate}, ${inputText}`;
+    const entry = {
+        date: selectedDate,
+        text: inputText
+    };
 
-displayJournal.appendChild(paragraph);
+    const savedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+    savedEntries.push(entry);
+    localStorage.setItem('journalEntries', JSON.stringify(savedEntries));
 
-const savedEntries = JSON.parse(localStorage.getItem('journalEntries'));
-savedEntries.push(inputText);
-localStorage.setItem('journalEntries', JSON.stringify(savedEntries));
+    const paragraph = document.createElement('p');
+    paragraph.textContent = entry.date + ": " + entry.text;
+    displayJournal.appendChild(paragraph);
 
-dateSelector.value = '';
-journalEntry.value = '';
+    dateSelector.value = '';
+    journalEntry.value = '';
 });
 
-deleteEntry.addEventListener("click", function(){
+deleteEntry.addEventListener("click", function () {
     localStorage.removeItem("journalEntries");
     displayJournal.innerHTML = "";
 });
