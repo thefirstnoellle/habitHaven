@@ -48,15 +48,19 @@ const habitName = document.getElementById("habitName");
 const habitGoal = document.getElementById("habitGoal");
 const unit = document.getElementById("selectUnit");
 
-// Save Habit
-const habitElement = document.createElement("div");
-const habitContainer = document.getElementById("habitContainer");
-
+// Save New Habit
 saveHabit.addEventListener("click", function() {
-    habitElement.textContent = habitName.value + " - Goal: " + habitGoal.value + " " + unit.value + " " + unit;
+  const habitElement = document.createElement("div");
+  const habitContainer = document.getElementById("habitContainer");
+    habitElement.textContent = habitName.value + " - Goal: " + habitGoal.value + " " + unit.value;
+    
     habitContainer.appendChild(habitElement);
-
     modal.style.display = "none";
+    habitElement.classList.add("habitElement");
+
+    habitName.value = "";
+    habitGoal.value = "";
+    unit.value = "";
 });
 
 // Create functions to change with progress using radio buttons
