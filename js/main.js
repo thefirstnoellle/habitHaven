@@ -103,13 +103,49 @@ saveHabit.addEventListener("click", function() {
     modal.style.display = "none";
     habitElement.classList.add("habitElement");
     progressImg.classList.add("progress");
+    progressSelector.classList.add("progressSelector");
+    
 // clear entered values after saving
     habitName.value = "";
     habitGoal.value = "";
     unit.value = "";
 
+
+
+  // create delete modal
+  const deleteModal = document.createElement("div");
+  deleteModal.classList.add("deleteModal");
+  // create delete modal content
+  const deleteModalContent = document.createElement("div");
+  deleteModalContent.classList.add("deleteModal-content");
+  deleteModalContent.textContent = "Are you sure you want to delete this habit?";
+
+  // create cancel button
+  const cancelBtn = document.createElement("button");
+  cancelBtn.classList.add("cancelBtn");
+  cancelBtn.textContent = "Cancel";
+  
+  // create delete button
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("deleteBtn");
+  deleteBtn.textContent = "Delete Forever";
+
+  habitElement.appendChild(deleteModal);
+  deleteModal.appendChild(deleteModalContent);
+  deleteModalContent.appendChild(cancelBtn);
+  deleteModalContent.appendChild(deleteBtn);
+
+ // delete modal opens on double click
 habitElement.addEventListener("dblclick", function() {
-console.log("double click to open delete modal");
+  deleteModal.style.display = "block";
+});
+
+deleteBtn.addEventListener("click", function () {
+  habitElement.style.display = "none";
+});
+
+cancelBtn.addEventListener("click", function() {
+  deleteModal.style.display = "none";
 });
   });
 

@@ -115,7 +115,7 @@ body {
     color: white;
 }
 
-.habitModal {
+.habitModal, .deleteModal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -127,7 +127,7 @@ body {
     background-color: rgba(220, 220, 220, 0.3);
   }
   
-  .modal-content {
+  .modal-content, .deleteModal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -174,6 +174,44 @@ body {
         color: white;
     }
 
+.deleteModal-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.cancelBtn {
+    margin: 10px;
+    padding: 10px 25px;
+    border-radius: 20px;
+    background-color: white;
+    color: #A36361;
+    border: 1px solid #A36361;
+    transition-duration: 0.4s;
+}
+
+.cancelBtn:hover {
+    cursor: pointer;
+    background-color: #A36361;
+    color:#feead4a0;
+}
+
+.deleteBtn {
+    margin: 10px;
+    padding: 10px 25px;
+    border-radius: 20px;
+    background-color: #A36361;
+    color:#feead4a0;
+    border: 1px solid #A36361;
+    transition-duration: 0.4s;
+}
+
+.deleteBtn:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #A36361;
+}
 
 .main-container {
     display: flex;
@@ -245,12 +283,20 @@ input[type=radio] {
    accent-color: #A36361;
 }
 
+
 .right-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.progressSelector {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-left: auto;
+    margin-right: 5%;
+}
 .streak {
     background-color: #feead4a0;
     color: #283E50;
