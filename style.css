@@ -53,6 +53,7 @@ body {
 
 .page-links button:hover {
     color: #A36361;
+    cursor: pointer;
 }
 
 .icon {
