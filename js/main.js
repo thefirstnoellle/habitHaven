@@ -1,22 +1,22 @@
 // Clicking logo brings user to homepage
 function goToHome() {
-    window.location.href = "index.html";
+  window.location.href = "index.html";
 }
 // Clicking About brings user to About page
 function goToAbout() {
-    window.location.href = "about.html";
+  window.location.href = "about.html";
 }
 // Clicking Inspiration brings user to Inspiration page
 function goToInspiration() {
-    window.location.href = "inspiration.html";
+  window.location.href = "inspiration.html";
 }
 // Clicking Journal brings user to Journal page
 function goToJournal() {
-    window.location.href = "journal.html";
+  window.location.href = "journal.html";
 }
 // Clicking Login brings user to Login page
 function goToLogin() {
-  window.location.href = "login.html";
+window.location.href = "login.html";
 }
 
 // Get modal
@@ -46,14 +46,12 @@ if (event.target == modal) {
 const saveHabit = document.getElementById("saveHabit");
 const habitName = document.getElementById("habitName");
 const habitGoal = document.getElementById("habitGoal");
-const habitElement = document.createElement("div");
 const unit = document.getElementById("selectUnit");
-const progressSelector = document.createElement("select");
-const progressImg = document.createElement("img")
 
 // Save New Habit
 saveHabit.addEventListener("click", function() {
 const habitContainer = document.getElementById("habitContainer");
+const habitElement = document.createElement("div");
 const habitNameValue = document.createElement("p");
 const habitGoalValue = document.createElement("p");
 const habitColor = document.getElementById("habitColor");
@@ -67,8 +65,10 @@ if (!habitName.value || !habitGoal.value) {
 }
 
 // add progress image
+  const progressImg = document.createElement("img");
   progressImg.src = "images/progress-0.png";
-
+// create progress select element
+  const progressSelector = document.createElement("select");
 // add options to secect element    
   const option0 = document.createElement("option");
   progressSelector.add(option0);
@@ -89,6 +89,21 @@ if (!habitName.value || !habitGoal.value) {
   optionComplete.text = (habitGoal.value * 1) + " " + unit.value;
   progressSelector.add(optionComplete);
 
+// change progress img when user selects option
+  progressSelector.addEventListener("change", function() {
+    if (progressSelector.selectedIndex === 1) {
+      progressImg.src = "images/progress-25.png";
+    } else if (progressSelector.selectedIndex === 2) {
+      progressImg.src = "images/progress-50.png";
+    } else if (progressSelector.selectedIndex === 3) {
+      progressImg.src = "images/progress-75.png";
+    } else if (progressSelector.selectedIndex === 4) {
+      progressImg.src = "images/progress-100.png"
+    } else {
+      progressImg.src = "images/progress-0.png"
+    }
+  });
+
 // display new habit after saving
   habitContainer.appendChild(habitElement);
   habitElement.appendChild(habitNameValue);
@@ -97,7 +112,7 @@ if (!habitName.value || !habitGoal.value) {
   habitElement.appendChild(progressImg);
 // change background color of habitElement to selected value
 habitElement.style.backgroundColor= habitColor.value;
-
+  
 // close modal after saving
   modal.style.display = "none";
 //assign class names to variables
@@ -111,22 +126,6 @@ habitElement.style.backgroundColor= habitColor.value;
   habitName.value = "";
   habitGoal.value = "";
   unit.value = "";
-});
-
-// change progress img when user selects option
-progressSelector.addEventListener("change", function() {
-  if (progressSelector.selectedIndex === 1) {
-    progressImg.src = "images/progress-25.png";
-  } else if (progressSelector.selectedIndex === 2) {
-    progressImg.src = "images/progress-50.png";
-  } else if (progressSelector.selectedIndex === 3) {
-    progressImg.src = "images/progress-75.png";
-  } else if (progressSelector.selectedIndex === 4) {
-    progressImg.src = "images/progress-100.png"
-  } else {
-    progressImg.src = "images/progress-0.png"
-  }
-});
 
 // create delete modal
 const deleteModal = document.createElement("div");
@@ -163,4 +162,4 @@ habitElement.style.display = "none";
 cancelBtn.addEventListener("click", function() {
 deleteModal.style.display = "none";
 });
-
+});
