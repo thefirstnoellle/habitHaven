@@ -260,10 +260,18 @@ body {
     margin: 0;
 }
 
+#habitColor {
+    border-radius: 10px;
+    border: none;
+    width: 40px;
+    padding: 0;
+    margin: 5px;
+    background-color: white;
+    cursor: pointer;
+}
 #selectUnit {
     margin: 10px;
     padding: 5px;
-
 }
 
 input[type=submit] {
@@ -295,12 +303,18 @@ input[type=radio] {
     align-items: center;
 }
 
+.habitGoal {
+    margin-left: auto;
+    font-weight: 300;
+    font-size: 14px;
+}
+
 .progressSelector {
+    font-family: "Poppins";
     border: none;
     cursor: pointer;
     outline: none;
-    margin-left: auto;
-    margin-right: 5%;
+    margin: 5%;
     padding: 5px;
 }
 .streak {
@@ -426,7 +440,7 @@ textarea {
 }
 
 @media screen and (max-width: 750px) {
-    .firstHabit, .secondHabit, .thirdHabit {
+    .firstHabit, .secondHabit, .thirdHabit, .habitElement {
         height: fit-content;
         display: flex;
         flex-direction: column;

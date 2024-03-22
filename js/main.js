@@ -50,10 +50,13 @@ const unit = document.getElementById("selectUnit");
 
 // Save New Habit
 saveHabit.addEventListener("click", function() {
-  const habitElement = document.createElement("div");
   const habitContainer = document.getElementById("habitContainer");
-
-    habitElement.textContent = habitName.value + " Goal: " + habitGoal.value + " " + unit.value;
+  const habitElement = document.createElement("div");
+  const habitNameValue = document.createElement("p");
+  const habitGoalValue = document.createElement("p");
+  const habitColor = document.getElementById("habitColor");
+  habitNameValue.textContent = habitName.value
+  habitGoalValue.textContent = "Goal: " + habitGoal.value + " " + unit.value;
 // add progress image
     const progressImg = document.createElement("img");
     progressImg.src = "images/progress-0.png";
@@ -96,8 +99,12 @@ saveHabit.addEventListener("click", function() {
 
 // display new habit after saving
     habitContainer.appendChild(habitElement);
+    habitElement.appendChild(habitNameValue);
+    habitElement.appendChild(habitGoalValue);
     habitElement.appendChild(progressSelector);
     habitElement.appendChild(progressImg);
+// change background color of habitElement to selected value
+  habitElement.style.backgroundColor= habitColor.value;
     
 // close modal after saving
     modal.style.display = "none";
@@ -105,13 +112,13 @@ saveHabit.addEventListener("click", function() {
     habitElement.classList.add("habitElement");
     progressImg.classList.add("progress");
     progressSelector.classList.add("progressSelector");
+    habitNameValue.classList.add("habitName");
+    habitGoalValue.classList.add("habitGoal");
     
 // clear entered values after saving
     habitName.value = "";
     habitGoal.value = "";
     unit.value = "";
-
-
 
   // create delete modal
   const deleteModal = document.createElement("div");
