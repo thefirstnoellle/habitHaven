@@ -107,41 +107,9 @@ saveHabit.addEventListener("click", function() {
     habitName.value = "";
     habitGoal.value = "";
     unit.value = "";
+
+habitElement.addEventListener("dblclick", function() {
+console.log("double click to open delete modal");
 });
-
-
-// Create functions to change with progress using radio buttons
-const radioButtons = document.querySelectorAll('input[type="radio"][name="habit"]');
-  
-function functionFor25() {
-  const progress25 = document.getElementById("progress");
-  progress.src="images/progress-25.png";
-};
-
-function functionFor50() {
-  const progress50 = document.getElementById("progress");
-  progress.src="images/progress-50.png";
-};
-
-function functionFor100() {
-  const progress100 = document.getElementById("progress");
-  progress.src="images/progress-100.png";
-};
-
-  // Add event listener to each radio button
-  radioButtons.forEach(function(radioButton) {
-      radioButton.addEventListener("change", function() {
-          // Check which radio button is selected
-          if (this.value === "25") {
-              // Perform function for value="25"
-              functionFor25();
-          } else if (this.value === "50") {
-              // Perform function for value="50"
-              functionFor50();
-          } else if (this.value === "100") {
-              // Perform function for value="100"
-              functionFor100();
-          }
-      });
   });
 
