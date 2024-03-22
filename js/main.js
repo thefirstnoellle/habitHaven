@@ -59,6 +59,13 @@ const habitGoalValue = document.createElement("p");
 const habitColor = document.getElementById("habitColor");
 habitNameValue.textContent = habitName.value
 habitGoalValue.textContent = "Goal: " + habitGoal.value + " " + unit.value;
+
+// alert if fields are empty
+if (!habitName.value || !habitGoal.value) {
+  alert("Please complete all fields.");
+  return;
+}
+
 // add progress image
   progressImg.src = "images/progress-0.png";
 
@@ -90,12 +97,6 @@ habitGoalValue.textContent = "Goal: " + habitGoal.value + " " + unit.value;
   habitElement.appendChild(progressImg);
 // change background color of habitElement to selected value
 habitElement.style.backgroundColor= habitColor.value;
-
-// alert if fields are empty
-if (!habitName.value || !habitGoal.value) {
-  alert("Please complete all fields.");
-  return;
-}
 
 // close modal after saving
   modal.style.display = "none";
