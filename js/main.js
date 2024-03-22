@@ -19,7 +19,6 @@ function goToLogin() {
   window.location.href = "login.html";
 }
 
-
 // Get modal
 const modal = document.getElementById("myModal");
 // Get button that opens the modal
@@ -91,7 +90,13 @@ habitGoalValue.textContent = "Goal: " + habitGoal.value + " " + unit.value;
   habitElement.appendChild(progressImg);
 // change background color of habitElement to selected value
 habitElement.style.backgroundColor= habitColor.value;
-  
+
+// alert if fields are empty
+if (!habitName.value || !habitGoal.value) {
+  alert("Please complete all fields.");
+  return;
+}
+
 // close modal after saving
   modal.style.display = "none";
 //assign class names to variables
