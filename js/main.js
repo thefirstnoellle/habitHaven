@@ -53,7 +53,7 @@ saveHabit.addEventListener("click", function() {
   const habitElement = document.createElement("div");
   const habitContainer = document.getElementById("habitContainer");
 
-    habitElement.textContent = habitName.value + " - Goal: " + habitGoal.value + " " + unit.value;
+    habitElement.textContent = habitName.value + " Goal: " + habitGoal.value + " " + unit.value;
 // add progress image
     const progressImg = document.createElement("img");
     progressImg.src = "images/progress-0.png";
@@ -101,6 +101,7 @@ saveHabit.addEventListener("click", function() {
     
 // close modal after saving
     modal.style.display = "none";
+//assign class names to variables
     habitElement.classList.add("habitElement");
     progressImg.classList.add("progress");
     progressSelector.classList.add("progressSelector");
