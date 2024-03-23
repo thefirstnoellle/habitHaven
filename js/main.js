@@ -43,13 +43,13 @@ if (event.target == modal) {
 }
 });
 
-const saveHabit = document.getElementById("saveHabit");
+const newHabit = document.getElementById("newHabit");
 const habitName = document.getElementById("habitName");
 const habitGoal = document.getElementById("habitGoal");
 const unit = document.getElementById("selectUnit");
 
 // Save New Habit
-saveHabit.addEventListener("click", function() {
+newHabit.addEventListener("click", function() {
 const habitContainer = document.getElementById("habitContainer");
 const habitElement = document.createElement("div");
 const habitNameValue = document.createElement("p");
