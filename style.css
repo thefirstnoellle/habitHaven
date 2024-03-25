@@ -1,633 +1,611 @@
-body {
-    box-sizing: border-box;
-    margin: 0;
-    font-family: "Poppins";
-    font-weight: 400;
-}
+    body {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: "Poppins";
+        font-weight: 400;
+    }
 
-/* Index CSS */
+    /* Index CSS */
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 75px;
-    background-color: #E8B298;
-    font-family: "Poppins";
-}
+    .header {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 75px;
+        background-color: #E8B298;
+        font-family: "Poppins";
+    }
 
-.header a {
-    text-decoration: none;
-    color: #A36361;
-    margin: 5px;
-}
+    .header a {
+        text-decoration: none;
+        color: #A36361;
+        margin: 5px;
+    }
 
-.logo {
-    display: flex;
-    align-items: center;
-   }
+    .logo {
+        display: flex;
+        align-items: center;
+    }
 
-#home {
-    background-color: #E8B298;
-    border: none;
-    font-size: 28px;
-    font-family: "Poppins";
-    font-weight: 300;
-    color:#A36361;
-    cursor: pointer;
-}
+    #home {
+        background-color: #E8B298;
+        border: none;
+        font-size: 28px;
+        font-family: "Poppins";
+        font-weight: 300;
+        color:#A36361;
+        cursor: pointer;
+    }
 
-.logo-img {
-    width: 90px;
-}
+    .logo-img {
+        width: 90px;
+    }
 
-.page-links {
-    display: flex;
-}
-.page-links button {
-    background-color: #E8B298;
-    border: none;
-    color: #FEEAD4;
-    margin: 16px;
-    font-family: "Poppins";
-}
+    .page-links {
+        display: flex;
+    }
+    .page-links button {
+        background-color: #E8B298;
+        border: none;
+        color: #FEEAD4;
+        margin: 16px;
+        font-family: "Poppins";
+    }
 
-.page-links button:hover {
-    color: #A36361;
-    cursor: pointer;
-}
+    .page-links button:hover {
+        color: #A36361;
+        cursor: pointer;
+    }
 
-.icon {
-    display: none;
-}
+    .icon {
+        display: none;
+    }
 
-.cta {
-    background-color: #A36361;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 30px;
-    margin-left: 32px;
-    color: white;
-    transition-duration: 0.4s;
-    font-family: "Poppins";
-}
+    .cta {
+        background-color: #A36361;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 30px;
+        margin-left: 32px;
+        color: white;
+        transition-duration: 0.4s;
+        font-family: "Poppins";
+    }
 
-.cta:hover {
-    background-color: #FEEAD4;
-    color: #A36361;
-    cursor: pointer;
-}
+    .cta:hover {
+        background-color: #FEEAD4;
+        color: #A36361;
+        cursor: pointer;
+    }
 
-.navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-}
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
+    }
 
-.main {
-    padding: 50px 150px;
-    min-height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
+    .main {
+        padding: 50px 150px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 
-/* homepage css */
+    /* homepage css */
 
-.top-row {
-    display: flex;
-    justify-content: flex-end;
+    .top-row {
+        display: flex;
+        justify-content: flex-end;
 
-}
+    }
 
-#add-habit {
-    padding: 10px 25px;
-    border-radius: 20px;
-    background-color: #EECC8C;
-    color: #283E50;
-    border: none;
-    transition-duration: 0.4s;
-    font-family: "Poppins";
-}
+    #add-habit {
+        padding: 10px 25px;
+        border-radius: 20px;
+        background-color: #EECC8C;
+        color: #283E50;
+        border: none;
+        transition-duration: 0.4s;
+        font-family: "Poppins";
+    }
 
-#add-habit:hover {
-    cursor: pointer;
-    background-color: #D3A29D;
-    color: white;
-}
-
-.habitModal, .deleteModal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 150px; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(220, 220, 220, 0.3);
-  }
-  
-  .modal-content, .deleteModal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: none;
-    border-radius: 30px;
-    width: 40%;
-  }
-  
-  .modal-content h2, .modal-content label {
-    margin-left: 10px;
-  }
-  .modal-content input {
-    margin: 10px;
-    width: 75%;
-    padding: 5px;
-  }
-
-  #close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  #close:hover {
-    color: #A36361;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-#newHabit {
-    padding: 10px 25px;
-    border-radius: 20px;
-    background-color: #EECC8C;
-    color: #283E50;
-    border: none;
-    transition-duration: 0.4s;
-    font-family: "Poppins";
-}
-
-#newHabit:hover {
+    #add-habit:hover {
         cursor: pointer;
         background-color: #D3A29D;
         color: white;
     }
 
-.deleteModal-content {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-}
-
-.cancelBtn {
-    margin: 10px;
-    padding: 10px 25px;
-    border-radius: 20px;
-    background-color: white;
-    color: #A36361;
-    border: 1px solid #A36361;
-    transition-duration: 0.4s;
-}
-
-.cancelBtn:hover {
-    cursor: pointer;
-    background-color: #A36361;
-    color:#feead4a0;
-}
-
-.deleteBtn {
-    margin: 10px;
-    padding: 10px 25px;
-    border-radius: 20px;
-    background-color: #A36361;
-    color:#feead4a0;
-    border: 1px solid #A36361;
-    transition-duration: 0.4s;
-}
-
-.deleteBtn:hover {
-    cursor: pointer;
-    background-color: white;
-    color: #A36361;
-}
-
-.main-container {
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    flex-shrink: 0;
-}
-
-.calendar-days, .calendar-dates {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.habit-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-.firstHabit, .secondHabit, .thirdHabit, .habitElement {
-    margin: 20px;
-    height: 20px;
-    padding: 30px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #BDD1C5;
-}
-
-
-.firstHabit {
-    background-color: #BDD1C5;
-}
-
-.secondHabit {
-    background-color: #D3A29D;
-}
-
-.thirdHabit {
-    background-color: #9EABA2;
-}
-
-.progress {
-    width: 60px;
-    margin: 0;
-}
-
-#habitColor {
-    border-radius: 10px;
-    border: none;
-    width: 40px;
-    padding: 0;
-    margin: 5px;
-    background-color: white;
-    cursor: pointer;
-}
-#selectUnit {
-    margin: 10px;
-    padding: 5px;
-}
-
-input[type=submit] {
-    padding: 5px 10px;
-    border-radius: 20px;
-    background-color: #EECC8C;
-    color: #283E50;
-    border: none;
-    transition-duration: 0.4s;
-    font-family: "Poppins";
-    font-size: 10px;
-    margin-left: 10px;
-}
-
-input[type=submit]:hover {
-    cursor: pointer;
-    background-color: #FEEAD4;
-    color: #A36361;
-}
-
-input[type=radio] {
-   accent-color: #A36361;
-}
-
-
-.right-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.habitGoal {
-    margin-left: auto;
-    font-weight: 300;
-    font-size: 14px;
-}
-
-.progressSelector {
-    font-family: "Poppins";
-    border: none;
-    cursor: pointer;
-    outline: none;
-    margin: 5%;
-    padding: 5px;
-}
-.streak {
-    background-color: #feead4a0;
-    color: #283E50;
-    border-radius: 10px;
-    width: 200px;
-    padding: 20px;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-}
-
-.streak p {
-    font-size: 30px;
-    font-weight: 700;
-    margin: 10px;
-}
-
-.journal-nav {
-    background-color: #feead4a0;
-    color: #283E50;
-    border-radius: 10px;
-    width: 200px;
-    height: 300px;
-    padding: 20px;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.journal-nav {
-    background-color: #feead4a0;
-    border-radius: 10px;
-    width: 200px;
-    height: 300px;
-    padding: 20px;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-textarea {
-    resize: none;
-    height: 75%;
-    width: 90%;
-    background-color: #feead4a0;
-    border: none;
-    font-family: "Poppins";
-    padding: 10px;
-    margin-bottom: 10px;
-    outline: none;
-  }
-
-.journal-nav button {
-    padding: 10px 25px;
-    border-radius: 20px;
-    background-color: #EECC8C;
-    border: none;
-    color: #283E50;
-    transition-duration: 0.4s;
-}
-
-.journal-nav button:hover {
-    background-color: #D3A29D;
-    color: white;
-    cursor: pointer;
-}
-
-.footer {
-    display: flex;
-    justify-content: flex-end;
-    background-color: #E8B298;
-    color: #A36361;
-    padding: 10px 15px;
-    font-weight: 600;
-    font-size: small;
-    width: 100%;
-    position: fixed;
-    bottom: 0px;
-    right: 0;
-}
-
-/* responsive design */
-@media screen and (max-width: 850px) {
-    .header {
-        width: 100%;
-        padding: 10px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
-    
-    .logo-img {
+    .habitModal, .deleteModal {
         display: none;
-    }
-    
-    .logo {
-        font-size: 15px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .navigation {
-        font-size: 12px;
-        display: flex;
-        flex-shrink: 1;
-    }
-    
-    .main {
+        position: fixed;
+        z-index: 1;
+        padding-top: 150px; 
+        left: 0;
+        top: 0;
         width: 100%;
-        margin: 0;
-        padding: 10px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        height: 100%;
+        background-color: rgba(220, 220, 220, 0.3);
+    }
+    
+    .modal-content, .deleteModal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 30px;
+        border: none;
+        border-radius: 30px;
+        width: 30%;
+    }
+    
+    .modal-content h2, .modal-content label {
+        margin-left: 10px;
+    }
+    .modal-content input {
+        margin: 10px;
+        width: 75%;
+        padding: 5px;
     }
 
-}
+    #close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    #close:hover {
+        color: #A36361;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-@media screen and (max-width: 750px) {
-    .firstHabit, .secondHabit, .thirdHabit, .habitElement {
-        height: fit-content;
+    #newHabit {
+        margin-left: 30px;
+        padding: 10px 25px;
+        border-radius: 20px;
+        background-color: #EECC8C;
+        color: #283E50;
+        border: none;
+        transition-duration: 0.4s;
+        font-family: "Poppins";
+    }
+
+    #newHabit:hover {
+            cursor: pointer;
+            background-color: #D3A29D;
+            color: white;
+        }
+
+    .deleteModal-content {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        align-items: flex-start;
-        padding: 15px;
+        align-content: center;
     }
 
-  .habitForm {
-    margin: 10px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-    .page-links button:not(:first-child) {display: none;}
-    .page-links button {
-      display: block;
-      font-size: 20px;
+    .cancelBtn {
+        margin: 10px;
+        padding: 10px 25px;
+        border-radius: 20px;
+        background-color: white;
+        color: #A36361;
+        border: 1px solid #A36361;
+        transition-duration: 0.4s;
     }
+
+    .cancelBtn:hover {
+        cursor: pointer;
+        background-color: #A36361;
+        color:#feead4a0;
+    }
+
+    .deleteBtn {
+        margin: 10px;
+        padding: 10px 25px;
+        border-radius: 20px;
+        background-color: #A36361;
+        color:#feead4a0;
+        border: 1px solid #A36361;
+        transition-duration: 0.4s;
+    }
+
+    .deleteBtn:hover {
+        cursor: pointer;
+        background-color: white;
+        color: #A36361;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        flex-shrink: 0;
+    }
+
+    .calendar-days, .calendar-dates {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .habit-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    .firstHabit, .secondHabit, .thirdHabit, .habitElement {
+        margin: 20px;
+        height: 20px;
+        padding: 30px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #BDD1C5;
+    }
+
+
+    .firstHabit {
+        background-color: #BDD1C5;
+    }
+
+    .secondHabit {
+        background-color: #D3A29D;
+    }
+
+    .thirdHabit {
+        background-color: #9EABA2;
+    }
+
+    .progress {
+        width: 60px;
+        margin: 0;
+    }
+
+    #habitColor {
+        border-radius: 10px;
+        border: none;
+        width: 40px;
+        padding: 0;
+        margin: 5px;
+        background-color: white;
+        cursor: pointer;
+    }
+    #selectUnit {
+        margin: 10px;
+        padding: 5px;
+    }
+
+    .right-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .habitGoal {
+        margin-left: auto;
+        font-weight: 300;
+        font-size: 14px;
+    }
+
+    .progressSelector {
+        font-family: "Poppins";
+        border: none;
+        cursor: pointer;
+        outline: none;
+        margin: 5%;
+        padding: 5px;
+    }
+    .streak {
+        background-color: #feead4a0;
+        color: #283E50;
+        border-radius: 10px;
+        width: 200px;
+        padding: 20px;
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+    }
+
+    .streak p {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 10px;
+    }
+
+    .journal-nav {
+        background-color: #feead4a0;
+        color: #283E50;
+        border-radius: 10px;
+        width: 200px;
+        height: 300px;
+        padding: 20px;
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .journal-nav {
+        background-color: #feead4a0;
+        border-radius: 10px;
+        width: 200px;
+        height: 300px;
+        padding: 20px;
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    textarea {
+        resize: none;
+        height: 75%;
+        width: 90%;
+        background-color: #feead4a0;
+        border: none;
+        font-family: "Poppins";
+        padding: 10px;
+        margin-bottom: 10px;
+        outline: none;
+    }
+
+    .journal-nav button {
+        padding: 10px 25px;
+        border-radius: 20px;
+        background-color: #EECC8C;
+        border: none;
+        color: #283E50;
+        transition-duration: 0.4s;
+    }
+
+    .journal-nav button:hover {
+        background-color: #D3A29D;
+        color: white;
+        cursor: pointer;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: flex-end;
+        background-color: #E8B298;
+        color: #A36361;
+        padding: 10px 15px;
+        font-weight: 600;
+        font-size: small;
+        width: 100%;
+        position: fixed;
+        bottom: 0px;
+        right: 0;
+    }
+
+    /* responsive design */
+    @media screen and (max-width: 850px) {
+        .header {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        
+        .logo-img {
+            display: none;
+        }
+        
+        .logo {
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navigation {
+            font-size: 12px;
+            display: flex;
+            flex-shrink: 1;
+        }
+        
+        .main {
+            width: 100%;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+    }
+
+    @media screen and (max-width: 750px) {
+        .firstHabit, .secondHabit, .thirdHabit, .habitElement {
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            padding: 15px;
+        }
 
     .habitForm {
-        margin-left: 0;
+        margin: 10px;
     }
-  }
+    }
 
-/* About page CSS */
+    @media screen and (max-width: 375px) {
+        .page-links button:not(:first-child) {display: none;}
+        .page-links button {
+        display: block;
+        font-size: 20px;
+        }
 
+        .habitForm {
+            margin-left: 0;
+        }
+    }
 
-
-#about {
-    width: 70%;
-}
-
-.about h2, .about h3 {
-    color:#A36361;
-}
-
-#arcade {
-    background-color: #9EABA2;
-    height: 400px;
-}
-.socials img {
-    height: 75px;
-}
-
-.socials img:hover {
-    opacity: 75%;
-}
-
-/* Inspiration  page CSS */
-.inspiration-main {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
-.inspiration-main h3, .inspiration-main h2 {
-    color: #A36361;
-}
-
-#quote-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin: 0px;
-}
-
-#quote-container h2 {
-    margin-bottom: 0;
-    color: #9EABA2;
-}
-
-#quote-container p {
-    font-size: 14px;
-}
-
-.inspiration-image img {
-    width: 500px;
-    margin-top: 100px;
-    border-radius: 10px;
-}
-
-ul {
-    padding: 20px;
-}
-
-ul a {
-    color: black;
-}
+    /* About page CSS */
 
 
-/* Journal page CSS */
 
-.entry {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 500px;
-}
+    #about {
+        width: 70%;
+    }
 
-.title-label {
-    color: white;
-    background-color: #A36361;
-    margin: 10px; 
-    padding: 10px 25px;
-}
+    .about h2, .about h3 {
+        color:#A36361;
+    }
 
-#date-selector {
-    font-family: "Poppins";
-    border: 1px solid #EECC8C;
-    outline: none;
-    margin: 10px;
-    padding: 5px;
-    width: 50%;
-}
+    #arcade {
+        background-color: #9EABA2;
+        height: 400px;
+    }
+    .socials img {
+        height: 75px;
+    }
 
-#entry-title {
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
-    background-color: #feead4a0;
-    font-family: "Poppins";
-    border: none;
-}
+    .socials img:hover {
+        opacity: 75%;
+    }
 
-.entry-label {
-    color: white;
-    background-color: hsl(2, 26%, 51%);
-    margin: 10px; 
-    padding: 10px 25px;
-}
+    /* Inspiration  page CSS */
+    .inspiration-main {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
 
-#journal-entry {
-    height: 300px;
-    margin: 10px;
-    font-family: "Poppins";
-    overflow: auto;
-    padding: 10px;
-    background-color: #feead4a0;
-}
+    .inspiration-main h3, .inspiration-main h2 {
+        color: #A36361;
+    }
 
-.journal-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
+    #quote-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin: 0px;
+    }
 
-#save-entry {
-    padding: 10px 25px;
-    width: 100px;
-    border-radius: 20px;
-    margin-right: 10px;
-    background-color: #EECC8C;
-    border: none;
-    color:#283E50;
-    transition-duration: 0.4s;
-    font-family: "Poppins";
-}
+    #quote-container h2 {
+        margin-bottom: 0;
+        color: #9EABA2;
+    }
 
-#save-entry:hover {
-    cursor: pointer;
-    background-color: #F6D8A0;
-}
+    #quote-container p {
+        font-size: 14px;
+    }
 
-#delete-entry {
-    padding: 9px 20px;
-    width: 120px;
-    border-radius: 20px;
-    border: 2px solid #EECC8C;
-    background-color: white;
-    color:#283E50;
-    transition-duration: 0.4s;
-    font-family: "Poppins";
-}
+    .inspiration-image img {
+        width: 500px;
+        margin-top: 100px;
+        border-radius: 10px;
+    }
 
-#delete-entry:hover {
-    cursor: pointer;
-    background-color: #F6D8A0;
-    border: none;
-}
+    ul {
+        padding: 20px;
+    }
 
-#journal-container p {
-    background-color: #feead4a0;
-    width: 400px;
-    padding: 16px;
-    font-size: 14px;
-}
+    ul a {
+        color: black;
+    }
+
+
+    /* Journal page CSS */
+
+    .entry {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 500px;
+    }
+
+    .title-label {
+        color: white;
+        background-color: #A36361;
+        margin: 10px; 
+        padding: 10px 25px;
+    }
+
+    #date-selector {
+        font-family: "Poppins";
+        border: 1px solid #EECC8C;
+        outline: none;
+        margin: 10px;
+        padding: 5px;
+        width: 50%;
+    }
+
+    #entry-title {
+        width: 300px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #feead4a0;
+        font-family: "Poppins";
+        border: none;
+    }
+
+    .entry-label {
+        color: white;
+        background-color: hsl(2, 26%, 51%);
+        margin: 10px; 
+        padding: 10px 25px;
+    }
+
+    #journal-entry {
+        height: 300px;
+        margin: 10px;
+        font-family: "Poppins";
+        overflow: auto;
+        padding: 10px;
+        background-color: #feead4a0;
+    }
+
+    .journal-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    #save-entry {
+        padding: 10px 25px;
+        width: 100px;
+        border-radius: 20px;
+        margin-right: 10px;
+        background-color: #EECC8C;
+        border: none;
+        color:#283E50;
+        transition-duration: 0.4s;
+        font-family: "Poppins";
+    }
+
+    #save-entry:hover {
+        cursor: pointer;
+        background-color: #F6D8A0;
+    }
+
+    #delete-entry {
+        padding: 9px 20px;
+        width: 120px;
+        border-radius: 20px;
+        border: 2px solid #EECC8C;
+        background-color: white;
+        color:#283E50;
+        transition-duration: 0.4s;
+        font-family: "Poppins";
+    }
+
+    #delete-entry:hover {
+        cursor: pointer;
+        background-color: #F6D8A0;
+        border: none;
+    }
+
+    #journal-container p {
+        background-color: #feead4a0;
+        width: 400px;
+        padding: 16px;
+        font-size: 14px;
+    }
 
 

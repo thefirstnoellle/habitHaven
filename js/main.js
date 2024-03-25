@@ -19,6 +19,9 @@ function goToLogin() {
 window.location.href = "login.html";
 }
 
+// load habits saved in local storage
+
+
 // Get modal
 const modal = document.getElementById("myModal");
 // Get button that opens the modal
@@ -162,4 +165,5 @@ habitElement.style.display = "none";
 cancelBtn.addEventListener("click", function() {
 deleteModal.style.display = "none";
 });
+
 });

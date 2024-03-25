@@ -25,7 +25,7 @@ const journalEntry = document.getElementById("journal-entry");
 const saveBtn = document.getElementById("save-entry");
 const displayJournal = document.getElementById("journal-container");
 const deleteEntry = document.getElementById("delete-entry");
-
+// load saved journals from local storage
 window.addEventListener('load', function () {
     const savedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
     savedEntries.forEach(entry => {
