@@ -19,6 +19,55 @@ function goToLogin() {
 window.location.href = "login.html";
 }
 
+// Display Calendar
+const calendarContainer = document.getElementById('calendar');
+const prevWeekBtn = document.getElementById('prevWeek');
+const nextWeekBtn = document.getElementById('nextWeek');
+
+  let currentDate = new Date();
+  renderCalendar(currentDate);
+
+  prevWeekBtn.addEventListener('click', function() {
+    currentDate.setDate(currentDate.getDate() - 7);
+    renderCalendar(currentDate);
+  });
+
+  nextWeekBtn.addEventListener('click', function() {
+    currentDate.setDate(currentDate.getDate() + 7);
+    renderCalendar(currentDate);
+  });
+
+  function renderCalendar(date) {
+    calendarContainer.innerHTML = '';
+    const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+    
+    for (let i = 0; i < 7; i++) {
+      const day = new Date(date);
+      day.setDate(date.getDate() + i - date.getDay());
+
+      const dayElement = document.createElement('div');
+      dayElement.classList.add('day');
+      dayElement.textContent = daysOfWeek[i] + ' ' + day.getDate();
+
+     if (SameDay(day, new Date())) {
+        dayElement.style.backgroundColor = "#feead4a0";
+        dayElement.style.borderRadius = "30px"; // highlight today's date
+      } 
+
+      dayElement.addEventListener('click', function() {
+        // add function
+      });
+
+      calendarContainer.appendChild(dayElement);
+    }
+  }
+
+  function SameDay(date1, date2) {
+    return date1.getFullYear() === date2.getFullYear() &&
+           date1.getMonth() === date2.getMonth() &&
+           date1.getDate() === date2.getDate();
+  }
+
 // load habits saved in local storage
 
 
@@ -77,19 +126,19 @@ if (!habitName.value || !habitGoal.value) {
   progressSelector.add(option0);
 
   const option25 = document.createElement("option");
-  option25.text = (habitGoal.value * 0.25) + " " + unit.value;
+  option25.text = Math.round(habitGoal.value * 0.25) + " " + unit.value;
   progressSelector.add(option25);
 
   const option50 = document.createElement("option");
-  option50.text = (habitGoal.value * 0.5) + " " + unit.value;
+  option50.text = Math.round(habitGoal.value * 0.5) + " " + unit.value;
   progressSelector.add(option50);
 
   const option75 = document.createElement("option");
-  option75.text = (habitGoal.value * 0.75) + " " + unit.value;
+  option75.text = Math.round(habitGoal.value * 0.75) + " " + unit.value;
   progressSelector.add(option75);
 
   const optionComplete = document.createElement("option");
-  optionComplete.text = (habitGoal.value * 1) + " " + unit.value;
+  optionComplete.text = Math.round(habitGoal.value * 1) + " " + unit.value;
   progressSelector.add(optionComplete);
 
 // change progress img when user selects option
@@ -167,3 +216,4 @@ deleteModal.style.display = "none";
 });
 
 });
+
