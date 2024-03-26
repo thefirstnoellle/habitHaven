@@ -19,28 +19,28 @@ function goToLogin() {
 window.location.href = "login.html";
 }
 
-// Display Calendar
+// Create Calendar
 const calendarContainer = document.getElementById('calendar');
 const prevWeekBtn = document.getElementById('prevWeek');
 const nextWeekBtn = document.getElementById('nextWeek');
 
   let currentDate = new Date();
   renderCalendar(currentDate);
-
+// Clicking left arrow brings user to previous week
   prevWeekBtn.addEventListener('click', function() {
     currentDate.setDate(currentDate.getDate() - 7);
     renderCalendar(currentDate);
   });
-
+// Clicking right arrow brings user to next week
   nextWeekBtn.addEventListener('click', function() {
     currentDate.setDate(currentDate.getDate() + 7);
     renderCalendar(currentDate);
   });
-
+// Display days of week
   function renderCalendar(date) {
     calendarContainer.innerHTML = '';
     const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-    
+// Create day    
     for (let i = 0; i < 7; i++) {
       const day = new Date(date);
       day.setDate(date.getDate() + i - date.getDay());
@@ -48,12 +48,12 @@ const nextWeekBtn = document.getElementById('nextWeek');
       const dayElement = document.createElement('div');
       dayElement.classList.add('day');
       dayElement.textContent = daysOfWeek[i] + ' ' + day.getDate();
-
+// Highlight today's date
      if (SameDay(day, new Date())) {
         dayElement.style.backgroundColor = "#feead4a0";
-        dayElement.style.borderRadius = "30px"; // highlight today's date
+        dayElement.style.borderRadius = "30px";
       } 
-
+// Function that occurs when clicking on date
       dayElement.addEventListener('click', function() {
         // add function
       });
@@ -67,10 +67,6 @@ const nextWeekBtn = document.getElementById('nextWeek');
            date1.getMonth() === date2.getMonth() &&
            date1.getDate() === date2.getDate();
   }
-
-// load habits saved in local storage
-
-
 // Get modal
 const modal = document.getElementById("myModal");
 // Get button that opens the modal
@@ -99,22 +95,36 @@ const newHabit = document.getElementById("newHabit");
 const habitName = document.getElementById("habitName");
 const habitGoal = document.getElementById("habitGoal");
 const unit = document.getElementById("selectUnit");
+const habitContainer = document.getElementById("habitContainer");
 
 // Save New Habit
 newHabit.addEventListener("click", function() {
-const habitContainer = document.getElementById("habitContainer");
+// alert if fields are empty
+  if (!habitName.value || !habitGoal.value) {
+    alert("Please complete all fields.");
+    return;
+  }
+// close modal after saving
+  modal.style.display = "none";
+
+  createNewHabit();
+
+// clear entered values after saving
+  habitName.value = "";
+  habitGoal.value = "";
+  unit.value = "";
+});
+
+// Create elements for new habit
+function createNewHabit () {
 const habitElement = document.createElement("div");
 const habitNameValue = document.createElement("p");
 const habitGoalValue = document.createElement("p");
 const habitColor = document.getElementById("habitColor");
+
+// Set habit name and goal
 habitNameValue.textContent = habitName.value
 habitGoalValue.textContent = "Goal: " + habitGoal.value + " " + unit.value;
-
-// alert if fields are empty
-if (!habitName.value || !habitGoal.value) {
-  alert("Please complete all fields.");
-  return;
-}
 
 // add progress image
   const progressImg = document.createElement("img");
@@ -156,7 +166,7 @@ if (!habitName.value || !habitGoal.value) {
     }
   });
 
-// display new habit after saving
+// Display new habit after saving
   habitContainer.appendChild(habitElement);
   habitElement.appendChild(habitNameValue);
   habitElement.appendChild(habitGoalValue);
@@ -165,23 +175,18 @@ if (!habitName.value || !habitGoal.value) {
 // change background color of habitElement to selected value
 habitElement.style.backgroundColor= habitColor.value;
   
-// close modal after saving
-  modal.style.display = "none";
+
 //assign class names to variables
   habitElement.classList.add("habitElement");
   progressImg.classList.add("progress");
   progressSelector.classList.add("progressSelector");
   habitNameValue.classList.add("habitName");
   habitGoalValue.classList.add("habitGoal");
-  
-// clear entered values after saving
-  habitName.value = "";
-  habitGoal.value = "";
-  unit.value = "";
 
 // create delete modal
 const deleteModal = document.createElement("div");
 deleteModal.classList.add("deleteModal");
+
 // create delete modal content
 const deleteModalContent = document.createElement("div");
 deleteModalContent.classList.add("deleteModal-content");
@@ -206,14 +211,14 @@ deleteModalContent.appendChild(deleteBtn);
 habitElement.addEventListener("dblclick", function() {
 deleteModal.style.display = "block";
 });
-
+// Delete habit on button click
 deleteBtn.addEventListener("click", function () {
-habitElement.style.display = "none";
+  habitElement.style.display = "none";
 });
 
 cancelBtn.addEventListener("click", function() {
 deleteModal.style.display = "none";
 });
 
-});
+}
 
