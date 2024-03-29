@@ -13,6 +13,7 @@
         padding: 10px 75px;
         background-color: #E8B298;
         font-family: "Poppins";
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
     .header a {
@@ -69,6 +70,7 @@
         color: white;
         transition-duration: 0.4s;
         font-family: "Poppins";
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
     .cta:hover {
@@ -108,6 +110,7 @@
         border: none;
         transition-duration: 0.4s;
         font-family: "Poppins";
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
     #add-habit:hover {
@@ -251,7 +254,7 @@
         flex-wrap: wrap;
         margin-top: 40px;
     }
-    .habitElement2, .habitElement3, .habitElement {
+    .placeholderHabit, .habitElement {
         margin: 20px;
         height: 20px;
         padding: 30px;
@@ -260,13 +263,14 @@
         justify-content: space-between;
         align-items: center;
         background-color: #BDD1C5;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
-    .habitElement2 {
+    #habit2 {
         background-color: #D3A29D;
     }
 
-    .habitElement3 {
+   #habit3 {
         background-color: #9EABA2;
     }
 
@@ -319,6 +323,7 @@
         margin-top: 25px;
         display: flex;
         align-items: center;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
     .streak p {
@@ -338,18 +343,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-    }
-
-    .journal-nav {
-        background-color: #feead4a0;
-        border-radius: 10px;
-        width: 200px;
-        height: 300px;
-        padding: 20px;
-        margin-top: 25px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
     textarea {
@@ -371,6 +365,7 @@
         border: none;
         color: #283E50;
         transition-duration: 0.4s;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
     .journal-nav button:hover {

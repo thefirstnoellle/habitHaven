@@ -38,39 +38,39 @@
                 </div>
 
             <div class="habit-container" id="habitContainer">
-                <div class="habitElement">
+                <div class="placeholderHabit" ondblclick="deletePlaceholder()">
                     <p class="habitName">Drink Water</p>
                     <p class="habitGoal">Goal: 100 oz</p>
-                    <select class="progressSelector">
+                    <select class="progressSelector" id="progressSelector">
                         <option></option>
-                        <option>25 oz</option>
-                        <option>50 oz</option>
-                        <option>75 oz</option>
-                        <option>100 oz</option>
+                        <option id="option1">25 oz</option>
+                        <option id="option2">50 oz</option>
+                        <option id="option3">75 oz</option>
+                        <option id="option4">100 oz</option>
                     </select>
                   <div><img src="images/progress-0.png" class="progress" id="progress"></div>
                 </div>
-                <div class="habitElement2">
+                <div class="placeholderHabit" id="habit2" ondblclick="deletePlaceholder()">
                     <p class="habitName">Walk More</p>
                     <p class="habitGoal">Goal: 10 km</p>
-                    <select class="progressSelector">
+                    <select class="progressSelector" id="progressSelector">
                         <option></option>
-                        <option>2 km</option>
-                        <option>5 km</option>
-                        <option>7 km</option>
-                        <option>10 km</option>
+                        <option id="option1">2 km</option>
+                        <option id="option2">5 km</option>
+                        <option id="option3">7 km</option>
+                        <option id="option4">10 km</option>
                     </select>
                   <div><img src="images/progress-0.png" class="progress" id="progress"></div>
                 </div>
-                <div class="habitElement3">
-                    <p class="habitName">Walk More</p>
-                    <p class="habitGoal">Goal: 10 km</p>
-                    <select class="progressSelector">
+                <div class="placeholderHabit" id="placeholderHabit" ondblclick="deletePlaceholder()">
+                    <p class="habitName">Study</p>
+                    <p class="habitGoal">Goal: 15 hours</p>
+                    <select class="progressSelector" id="progressSelector">
                         <option></option>
-                        <option>2 km</option>
-                        <option>5 km</option>
-                        <option>7 km</option>
-                        <option>10 km</option>
+                        <option id="option1">4 hours</option>
+                        <option id="option2">8 hours</option>
+                        <option id="option3">12 hours</option>
+                        <option id="option4">15 hours</option>
                     </select>
                   <div><img src="images/progress-0.png" class="progress" id="progress"></div>
                 </div>
@@ -89,9 +89,12 @@
                         <input type="number" min="0" max="1000" id="habitGoal" placeholder="Enter your habit goal"><br>
                         <label for="slectUnit">Unit:</label>
                         <select id="selectUnit">
-                            <option value="minutes">Mins</option>
-                            <option value="hours">Hours</option>
-                            <option value="km">Km</option>
+                            <option value="minutes">mins</option>
+                            <option value="hours">hours</option>
+                            <option value="steps">steps</option>
+                            <option value="km">km</option>
+                            <option value="ml">ml</option>
+                            <option value="oz">oz</option>
                         </select>
                         <label for="favcolor">Select a color:</label>
                         <input type="color" id="habitColor" value="#BDD1C5">
