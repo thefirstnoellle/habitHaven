@@ -115,13 +115,12 @@ newHabit.addEventListener("click", function() {
   unit.value = "";
 });
 
+// Create elements for new habit
+function createNewHabit () {
 const habitElement = document.createElement("div");
 const habitNameValue = document.createElement("p");
 const habitGoalValue = document.createElement("p");
 const habitColor = document.getElementById("habitColor");
-
-// Create elements for new habit
-function createNewHabit () {
 
 // Set habit name and goal
 habitNameValue.textContent = habitName.value
@@ -184,8 +183,6 @@ habitGoalValue.textContent = "Goal: " + habitGoal.value + " " + unit.value;
   habitNameValue.classList.add("habitName");
   habitGoalValue.classList.add("habitGoal");
 
-}
-
 // create delete modal
 const deleteModal = document.createElement("div");
 deleteModal.classList.add("deleteModal");
@@ -218,44 +215,11 @@ deleteModal.style.display = "block";
 deleteBtn.addEventListener("click", function () {
   habitElement.style.display = "none";
 });
-// Close modal on button click
-cancelBtn.addEventListener("click", function() {
-deleteModal.style.display = "none";
-});
 
-// function to update Placeholder Progress
-const progressSelector = document.getElementById("progressSelector");
-progressImg = document.getElementById("progress");
-progressSelector.addEventListener("change", function() {
-  if (progressSelector.selectedIndex === 1) {
-    progressImg.src = "images/progress-25.png";
-  } else if (progressSelector.selectedIndex === 2) {
-    progressImg.src = "images/progress-50.png";
-  } else if (progressSelector.selectedIndex === 3) {
-    progressImg.src = "images/progress-75.png";
-  } else if (progressSelector.selectedIndex === 4) {
-    progressImg.src = "images/progress-100.png"
-  } else {
-    progressImg.src = "images/progress-0.png"
-  }
-});
-
-
-// function to delete Placeholder
-function deletePlaceholder() {
-  const placeholder = document.getElementById("placeholderHabit");
-  placeholder.appendChild(deleteModal);
-  deleteModal.appendChild(deleteModalContent);
-  deleteModalContent.appendChild(cancelBtn);
-  deleteModalContent.appendChild(deleteBtn);
-// display delete modal
-  deleteModal.style.display = "block";
-// Delete habit on button click
-deleteBtn.addEventListener("click", function () {
-  placeholder.style.display = "none";
-});
-// Close modal on button click
 cancelBtn.addEventListener("click", function() {
 deleteModal.style.display = "none";
 });
 }
+
+
+
