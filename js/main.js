@@ -1,3 +1,24 @@
+// navigation JS
+function goToHome() {
+  window.location.href = "index.html";
+}
+
+function goToAbout() {
+  window.location.href = "about.html";
+}
+
+function goToInspiration() {
+  window.location.href = "inspiration.html";
+}
+
+function goToJournal() {
+  window.location.href = "journal.html";
+}
+
+function goToLogin() {
+  window.location.href = "login.html";
+}
+
 // Create Calendar
 const calendarContainer = document.getElementById('calendar');
 const prevWeekBtn = document.getElementById('prevWeek');
@@ -23,7 +44,7 @@ function renderCalendar(date) {
   calendarContainer.innerHTML = '';
   const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
 
-  // Create day    
+// Create day    
   for (let i = 0; i < 7; i++) {
     const day = new Date(date);
     day.setDate(date.getDate() + i - date.getDay());
@@ -37,9 +58,9 @@ function renderCalendar(date) {
       dayElement.style.borderRadius = "30px";
     } 
     
-    // Function that occurs when clicking on date
+// Function that occurs when clicking on date
     dayElement.addEventListener('click', function() {
-      // add function
+    // add function
     });
 
     calendarContainer.appendChild(dayElement);
@@ -58,10 +79,16 @@ const modal = document.getElementById("myModal");
 const btn = document.getElementById("add-habit");
 // Get element that closes the modal
 const closeModal = document.getElementById("close");
+const newHabit = document.getElementById("newHabit");
+const habitName = document.getElementById("habitName");
+const habitGoal = document.getElementById("habitGoal");
+const unit = document.getElementById("selectUnit");
+const habitContainer = document.getElementById("habitContainer");
 
 // When the user clicks the button, open the modal 
 btn.addEventListener("click", function() {
   modal.style.display = "block";
+  habitName.focus();
 });
 
 // When the user clicks on x, modal closes
@@ -76,12 +103,6 @@ window.addEventListener("click", function(event) {
   }
 });
 
-const newHabit = document.getElementById("newHabit");
-const habitName = document.getElementById("habitName");
-const habitGoal = document.getElementById("habitGoal");
-const unit = document.getElementById("selectUnit");
-const habitContainer = document.getElementById("habitContainer");
-
 // Load habits from local storage on page load
 window.addEventListener('load', function() {
   const habits = JSON.parse(localStorage.getItem('habits')) || [];
@@ -90,20 +111,19 @@ window.addEventListener('load', function() {
   });
 });
 
-// Save New Habit
+// Create New Habit
 newHabit.addEventListener("click", function() {
   if (!habitName.value || !habitGoal.value) {
     alert("Please complete all fields.");
     return;
   }
-
   modal.style.display = "none";
 
   const habit = {
     name: habitName.value,
     goal: habitGoal.value,
     unit: unit.value,
-    color: habitColor.value
+    color: habitColor.value,
   };
 
   // Save habit to local storage
@@ -138,14 +158,22 @@ function createNewHabitElement(habit) {
     progressSelector.add(progressOption);
   });
 
-  // Change progress image when user selects option
+  habitElement.classList.add("habitElement");
+  progressImg.classList.add("progress");
+  progressSelector.classList.add("progressSelector");
+  habitNameValue.classList.add("habitName");
+  habitGoalValue.classList.add("habitGoal");
+  
+// Change progress image when user selects option and rename progress once complete
   progressSelector.addEventListener("change", function() {
     const selectedIndex = progressSelector.selectedIndex;
     const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 25}.png`;
     progressImg.src = imgSrc;
+    progressSelector.classList.remove("progressSelector");
+    progressSelector.classList.add("progressComplete");
   });
 
-  // Set background color
+// Set background color
   habitElement.style.backgroundColor= habit.color;
 
   habitContainer.appendChild(habitElement);
@@ -154,13 +182,7 @@ function createNewHabitElement(habit) {
   habitElement.appendChild(progressSelector);
   habitElement.appendChild(progressImg);
 
-  habitElement.classList.add("habitElement");
-  progressImg.classList.add("progress");
-  progressSelector.classList.add("progressSelector");
-  habitNameValue.classList.add("habitName");
-  habitGoalValue.classList.add("habitGoal");
-
-  // create delete modal
+// create delete modal
 const deleteModal = document.createElement("div");
 deleteModal.classList.add("deleteModal");
 
@@ -191,7 +213,8 @@ deleteModal.style.display = "block";
 // Delete habit on button click
 deleteBtn.addEventListener("click", function () {
   habitElement.style.display = "none";
-  // Remove habit from local storage
+
+// Remove habit from local storage
   const habits = JSON.parse(localStorage.getItem('habits')) || [];
   const updatedHabits = habits.filter(h => h.name !== habit.name);
   localStorage.setItem('habits', JSON.stringify(updatedHabits));
