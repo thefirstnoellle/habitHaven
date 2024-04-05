@@ -366,8 +366,8 @@
         right: 0;
     }
 
-    /* responsive design */
-    @media screen and (max-width: 850px) {
+    /* responsive design for index */
+    @media screen and (max-width: 1000px) {
         .header {
             width: 100%;
             padding: 10px;
@@ -403,21 +403,19 @@
             justify-content: center;
         }
 
-    }
-
-    @media screen and (max-width: 750px) {
-        .firstHabit, .secondHabit, .thirdHabit, .habitElement {
-            height: fit-content;
+        #calendar {
             display: flex;
-            flex-direction: column;
             flex-wrap: wrap;
-            align-items: flex-start;
-            padding: 15px;
         }
 
-    .habitForm {
-        margin: 10px;
     }
+
+    @media screen and (max-width: 700px) {
+        .placeholderHabit, .habitElement {
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
 
     @media screen and (max-width: 375px) {
@@ -426,15 +424,14 @@
         display: block;
         font-size: 20px;
         }
-
-        .habitForm {
+        
+        .habitGoal {
             margin-left: 0;
         }
+
     }
 
     /* About page CSS */
-
-
 
     #about {
         width: 70%;
