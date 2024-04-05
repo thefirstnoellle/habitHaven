@@ -279,3 +279,28 @@ deleteModal.style.display = "none";
 });
 }
 
+// functions for Placeholder habits
+
+document.getElementById('progressSelector').addEventListener('change', function() {
+  let selectedIndex = this.value;
+  console.log(this.value);
+  const progress = document.getElementById('progress');
+  const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
+  progress.src = imgSrc;
+});
+
+document.getElementById('progressSelector1').addEventListener('change', function() {
+  let selectedIndex = this.value;
+  console.log(this.value);
+  const progress = document.getElementById('progress1');
+  const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
+  progress.src = imgSrc;
+});
+
+document.getElementById('progressSelector2').addEventListener('change', function() {
+  let selectedIndex = this.value;
+  console.log(this.value);
+  const progress = document.getElementById('progress2');
+  const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
+  progress.src = imgSrc;
+});
