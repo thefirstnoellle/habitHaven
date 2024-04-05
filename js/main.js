@@ -106,9 +106,6 @@ window.addEventListener("click", function(event) {
 // on page load, load habits from local storage on
 window.addEventListener('load', function() {
   const habits = JSON.parse(localStorage.getItem('habits')) || [];
-  //const yesterday = new Date();
-  //yesterday.setDate(yesterday.getDate() - 1);
-//  localStorage.setItem("goal", "false");
   habits.forEach(habit => {
     createNewHabitElement(habit);
   });
@@ -163,12 +160,12 @@ function createNewHabitElement(habit) {
   const progressImg = document.createElement("img");
   const progressSelector = document.createElement("select");
   
-  // Set habit name and goal
+// Set habit name and goal
   habitNameValue.textContent = habit.name;
   habitGoalValue.textContent = "Goal: " + habit.goal + " " + habit.unit;
   progressImg.src = "images/progress-0.png";
 
-  // Create progress options
+// Create progress options
   const progressOptions = [0, 0.25, 0.5, 0.75, 1];
   progressOptions.forEach(option => {
     const progressOption = document.createElement("option");
@@ -181,6 +178,15 @@ function createNewHabitElement(habit) {
   progressSelector.classList.add("progressSelector");
   habitNameValue.classList.add("habitName");
   habitGoalValue.classList.add("habitGoal");
+
+  // Set background color
+  habitElement.style.backgroundColor= habit.color;
+
+  habitContainer.appendChild(habitElement);
+  habitElement.appendChild(habitNameValue);
+  habitElement.appendChild(habitGoalValue);
+  habitElement.appendChild(progressSelector);
+  habitElement.appendChild(progressImg);
   
 // Change progress image when user selects option and rename progress once complete
   progressSelector.addEventListener("change", function() {
@@ -196,7 +202,10 @@ let streakCount = parseInt(localStorage.getItem('streakCount')) || 0;
 // Function to update streak count
 function updateStreak() {
     streakCount++;
-    localStorage.setItem('streakCount', streakCount);
+    localStorage.setItem('streakCount', streakCount.toString());
+    const streak = document.getElementById("streak");
+    console.log("streakcountis" +streakCount);
+    streak.textContent = streakCount;
 }
 
 // Function to reset streak count
@@ -208,7 +217,7 @@ function resetStreak() {
 // Check if goal is achieved
 if (selectedIndex === 4) {
     const goal = localStorage.getItem("goal");
-    if (goal !== "true") {
+    if (goal === "true") {
         localStorage.setItem("goal", "true");
         const today = new Date();
         localStorage.setItem("lastGoalDate", today.toDateString());
@@ -226,14 +235,6 @@ if (selectedIndex === 4) {
 }
   });
 
-// Set background color
-  habitElement.style.backgroundColor= habit.color;
-
-  habitContainer.appendChild(habitElement);
-  habitElement.appendChild(habitNameValue);
-  habitElement.appendChild(habitGoalValue);
-  habitElement.appendChild(progressSelector);
-  habitElement.appendChild(progressImg);
 
 // create delete modal
 const deleteModal = document.createElement("div");
