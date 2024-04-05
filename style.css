@@ -43,6 +43,8 @@
 
     .page-links {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     .page-links button {
         background-color: #E8B298;
@@ -50,6 +52,8 @@
         color: #FEEAD4;
         margin: 16px;
         font-family: "Poppins";
+        font-size: 15px;
+        transition-duration: 0.4s;
     }
 
     .page-links button:hover {
@@ -59,31 +63,6 @@
 
     .icon {
         display: none;
-    }
-
-    .cta {
-        background-color: #A36361;
-        border: none;
-        border-radius: 20px;
-        padding: 10px 30px;
-        margin-left: 32px;
-        color: white;
-        transition-duration: 0.4s;
-        font-family: "Poppins";
-        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
-    }
-
-    .cta:hover {
-        background-color: #FEEAD4;
-        color: #A36361;
-        cursor: pointer;
-    }
-
-    .navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 15px;
     }
 
     .main {
@@ -528,11 +507,13 @@
         width: 500px;
     }
 
-    .title-label {
+    .title-label, .entry-label {
         color: white;
         background-color: #A36361;
         margin: 10px; 
         padding: 10px 25px;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+
     }
 
     #date-selector {
@@ -542,22 +523,7 @@
         margin: 10px;
         padding: 5px;
         width: 50%;
-    }
-
-    #entry-title {
-        width: 300px;
-        margin: 10px;
-        padding: 10px;
-        background-color: #feead4a0;
-        font-family: "Poppins";
-        border: none;
-    }
-
-    .entry-label {
-        color: white;
-        background-color: hsl(2, 26%, 51%);
-        margin: 10px; 
-        padding: 10px 25px;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
     #journal-entry {
@@ -601,12 +567,14 @@
         color:#283E50;
         transition-duration: 0.4s;
         font-family: "Poppins";
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
     #delete-entry:hover {
         cursor: pointer;
         background-color: #F6D8A0;
         border: none;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
     #journal-container p {
@@ -614,6 +582,7 @@
         width: 400px;
         padding: 16px;
         font-size: 14px;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
 

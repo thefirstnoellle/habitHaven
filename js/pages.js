@@ -14,7 +14,4 @@ function goToInspiration() {
 function goToJournal() {
     window.location.href = "journal.html";
 }
-// Clicking Login brings user to Login page
-function goToLogin() {
-  window.location.href = "login.html";
-}
+

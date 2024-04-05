@@ -15,9 +15,6 @@ function goToJournal() {
   window.location.href = "journal.html";
 }
 
-function goToLogin() {
-  window.location.href = "login.html";
-}
 
 // Create Calendar
 const calendarContainer = document.getElementById('calendar');

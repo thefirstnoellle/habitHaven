@@ -15,10 +15,6 @@ function goToJournal() {
     window.location.href = "journal.html";
 }
 
-function goToLogin() {
-    window.location.href = "login.html";
-}
-
 // journal entry event
 const dateSelector = document.getElementById("date-selector");
 const journalEntry = document.getElementById("journal-entry");
