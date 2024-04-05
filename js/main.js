@@ -124,6 +124,7 @@ window.addEventListener('load', function() {
     const count = localStorage.getItem('streakCount');
     streak.textContent = count;
   }
+
 // if true increment and display new streak and then set goal to false
 // else check if streak is 0 and if not set it to 0 and set goal to false
 });
@@ -186,22 +187,43 @@ function createNewHabitElement(habit) {
     const selectedIndex = progressSelector.selectedIndex;
     const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 25}.png`;
     progressImg.src = imgSrc;
-    progressSelector.classList.remove("progressSelector");
-    progressSelector.classList.add("progressComplete");
     
 // Save selectedIndex to local storage
     localStorage.setItem("selectedIndex", selectedIndex);
+// Initialize streak count
+let streakCount = parseInt(localStorage.getItem('streakCount')) || 0;
 
-// Check if goal is set, if not, set goal
-    if(selectedIndex === 4){
-        const goal = localStorage.getItem("goal");
-        if(goal != "true"){
-            localStorage.setItem("goal", "true");
-            const today = new Date();
-            localStorage.setItem("lastGoalDate", today.toDateString());
-            localStorage.setItem("streakCount", "5");
-        }  
+// Function to update streak count
+function updateStreak() {
+    streakCount++;
+    localStorage.setItem('streakCount', streakCount);
+}
+
+// Function to reset streak count
+function resetStreak() {
+    streakCount = 0;
+    localStorage.setItem('streakCount', streakCount);
+}
+
+// Check if goal is achieved
+if (selectedIndex === 4) {
+    const goal = localStorage.getItem("goal");
+    if (goal !== "true") {
+        localStorage.setItem("goal", "true");
+        const today = new Date();
+        localStorage.setItem("lastGoalDate", today.toDateString());
+        updateStreak();
     }
+} else {
+    // Check if goal was set yesterday, if not, reset streak
+    const lastGoalDate = localStorage.getItem('lastGoalDate');
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterday1 = yesterday.toDateString();
+    if (lastGoalDate !== yesterday1) {
+        resetStreak();
+    }
+}
   });
 
 // Set background color
@@ -255,6 +277,4 @@ cancelBtn.addEventListener("click", function() {
 deleteModal.style.display = "none";
 });
 }
-
-//check if goal is set and then increase streak to +1 from what it was before
 
