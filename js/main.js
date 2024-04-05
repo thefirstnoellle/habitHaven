@@ -103,12 +103,29 @@ window.addEventListener("click", function(event) {
   }
 });
 
-// Load habits from local storage on page load
+// on page load, load habits from local storage on
 window.addEventListener('load', function() {
   const habits = JSON.parse(localStorage.getItem('habits')) || [];
+  //const yesterday = new Date();
+  //yesterday.setDate(yesterday.getDate() - 1);
+//  localStorage.setItem("goal", "false");
   habits.forEach(habit => {
     createNewHabitElement(habit);
   });
+
+// on page load check if goal is true and if lastGoalSet is yesterday
+  const goal = this.localStorage.getItem('goal');
+  const lastGoalDate = this.localStorage.getItem('lastGoalDate');
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  const yesterday1 = yesterday.toDateString();
+  if (goal === "true" && lastGoalDate === yesterday1){
+    const streak = document.getElementById("streak");
+    const count = localStorage.getItem('streakCount');
+    streak.textContent = count;
+  }
+// if true increment and display new streak and then set goal to false
+// else check if streak is 0 and if not set it to 0 and set goal to false
 });
 
 // Create New Habit
@@ -171,6 +188,20 @@ function createNewHabitElement(habit) {
     progressImg.src = imgSrc;
     progressSelector.classList.remove("progressSelector");
     progressSelector.classList.add("progressComplete");
+    
+// Save selectedIndex to local storage
+    localStorage.setItem("selectedIndex", selectedIndex);
+
+// Check if goal is set, if not, set goal
+    if(selectedIndex === 4){
+        const goal = localStorage.getItem("goal");
+        if(goal != "true"){
+            localStorage.setItem("goal", "true");
+            const today = new Date();
+            localStorage.setItem("lastGoalDate", today.toDateString());
+            localStorage.setItem("streakCount", "5");
+        }  
+    }
   });
 
 // Set background color
@@ -224,3 +255,6 @@ cancelBtn.addEventListener("click", function() {
 deleteModal.style.display = "none";
 });
 }
+
+//check if goal is set and then increase streak to +1 from what it was before
+
