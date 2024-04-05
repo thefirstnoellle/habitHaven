@@ -27,18 +27,6 @@ const nextWeekBtn = document.getElementById('nextWeek');
 let currentDate = new Date();
 renderCalendar(currentDate);
 
-// Clicking left arrow brings user to previous week
-prevWeekBtn.addEventListener('click', function() {
-  currentDate.setDate(currentDate.getDate() - 7);
-  renderCalendar(currentDate);
-});
-
-// Clicking right arrow brings user to next week
-nextWeekBtn.addEventListener('click', function() {
-  currentDate.setDate(currentDate.getDate() + 7);
-  renderCalendar(currentDate);
-});
-
 // Display days of week
 function renderCalendar(date) {
   calendarContainer.innerHTML = '';
@@ -57,11 +45,6 @@ function renderCalendar(date) {
       dayElement.style.backgroundColor = "#feead4a0";
       dayElement.style.borderRadius = "30px";
     } 
-    
-// Function that occurs when clicking on date
-    dayElement.addEventListener('click', function() {
-    // add function
-    });
 
     calendarContainer.appendChild(dayElement);
   }
@@ -204,7 +187,6 @@ function updateStreak() {
     streakCount++;
     localStorage.setItem('streakCount', streakCount.toString());
     const streak = document.getElementById("streak");
-    console.log("streakcountis" +streakCount);
     streak.textContent = streakCount;
 }
 
@@ -283,7 +265,6 @@ deleteModal.style.display = "none";
 
 document.getElementById('progressSelector').addEventListener('change', function() {
   let selectedIndex = this.value;
-  console.log(this.value);
   const progress = document.getElementById('progress');
   const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
   progress.src = imgSrc;
@@ -291,7 +272,6 @@ document.getElementById('progressSelector').addEventListener('change', function(
 
 document.getElementById('progressSelector1').addEventListener('change', function() {
   let selectedIndex = this.value;
-  console.log(this.value);
   const progress = document.getElementById('progress1');
   const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
   progress.src = imgSrc;
@@ -299,7 +279,6 @@ document.getElementById('progressSelector1').addEventListener('change', function
 
 document.getElementById('progressSelector2').addEventListener('change', function() {
   let selectedIndex = this.value;
-  console.log(this.value);
   const progress = document.getElementById('progress2');
   const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
   progress.src = imgSrc;

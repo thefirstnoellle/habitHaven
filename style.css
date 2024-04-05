@@ -235,13 +235,7 @@
         display: flex;
         justify-content: space-evenly;
     }
-    #prevWeek, #nextWeek {
-        border: none;
-        color: #283E50;
-        background-color: white;
-        font-size: large;
-        cursor: pointer;
-    }
+
     #calendar {
         display: flex;
         gap: 20px;
@@ -250,7 +244,7 @@
     .day {
         text-align: center;
         padding: 10px;
-        cursor: pointer;
+        font-size: 20px;
     }
 
     .habit-container {
