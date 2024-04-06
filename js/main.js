@@ -15,7 +15,6 @@ function goToJournal() {
   window.location.href = "journal.html";
 }
 
-
 // Create Calendar
 const calendarContainer = document.getElementById('calendar');
 const prevWeekBtn = document.getElementById('prevWeek');
@@ -192,11 +191,10 @@ function resetStreak() {
     streakCount = 0;
     localStorage.setItem('streakCount', streakCount);
 }
-
 // Check if goal is achieved
 if (selectedIndex === 4) {
     const goal = localStorage.getItem("goal");
-    if (goal === "true") {
+    if (goal !== "true") {
         localStorage.setItem("goal", "true");
         const today = new Date();
         localStorage.setItem("lastGoalDate", today.toDateString());
@@ -212,7 +210,8 @@ if (selectedIndex === 4) {
         resetStreak();
     }
 }
-  });
+  }
+  );
 
 
 // create delete modal
