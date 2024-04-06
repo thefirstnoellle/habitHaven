@@ -75,18 +75,26 @@ window.addEventListener('load', function() {
   habits.forEach(habit => {
     createNewHabitElement(habit);
   });
-// on page load, display current streak
+// on page load, display current streak, if streak is null - show 0
 const streak = document.getElementById("streak");
 const count = localStorage.getItem('streakCount');
-streak.textContent = count;
+if (count === null) {
+  streak.textContent = 0;
+  localStorage.setItem('count', '0');
+} else {
+  streak.textContent = count;
+}
 // if goal is true and if lastGoalSet is yesterday, set goal to false
   const goal = localStorage.getItem('goal');
   const lastGoalDate = localStorage.getItem('lastGoalDate');
+  const today = new Date();
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
   const yesterday1 = yesterday.toDateString();
   if (goal === "true" && lastGoalDate === yesterday1){
     localStorage.setItem('goal', "false");
+  } else if (goal === "true" && lastGoalDate === today.toDateString()) {
+   // do nothing 
   } else {
     if (goal === "true" && lastGoalDate !== yesterday1){
       localStorage.setItem('goal', "false");
@@ -210,8 +218,8 @@ if (selectedIndex === 4) {
         updateStreak();
     }
 } 
-else {
-    // Check if goal was set yesterday, if not, reset streak
+else { 
+    // Check if goal was set yesterday, if not, reset streak 
     const lastGoalDate = localStorage.getItem('lastGoalDate');
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
@@ -222,7 +230,6 @@ else {
     }
 }
 });
-
 
 // create delete modal
 const deleteModal = document.createElement("div");
@@ -268,7 +275,6 @@ deleteModal.style.display = "none";
 }
 
 // functions for Placeholder habits
-
 document.getElementById('progressSelector').addEventListener('change', function() {
   let selectedIndex = this.value;
   const progress = document.getElementById('progress');
@@ -289,3 +295,48 @@ document.getElementById('progressSelector2').addEventListener('change', function
   const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
   progress.src = imgSrc;
 });
+// create delete for Placeholder habits
+function deletePlaceholder() {
+  // create delete modal
+const deleteModal = document.createElement("div");
+deleteModal.classList.add("deleteModal");
+
+// create delete modal content
+const deleteModalContent = document.createElement("div");
+deleteModalContent.classList.add("deleteModal-content");
+deleteModalContent.textContent = "Are you sure you want to delete this habit?";
+
+// create cancel button
+const cancelBtn = document.createElement("button");
+cancelBtn.classList.add("cancelBtn");
+cancelBtn.textContent = "Cancel";
+
+// create delete button
+const deleteBtn = document.createElement("button");
+deleteBtn.classList.add("deleteBtn");
+deleteBtn.textContent = "Delete Forever";
+
+window.appendChild(deleteModal);
+deleteModal.appendChild(deleteModalContent);
+deleteModalContent.appendChild(cancelBtn);
+deleteModalContent.appendChild(deleteBtn);
+
+// delete modal opens on double click
+document.getElementById("")
+.addEventListener("dblclick", function() {
+deleteModal.style.display = "block";
+});
+// Delete habit on button click
+deleteBtn.addEventListener("click", function () {
+  habitElement.style.display = "none";
+
+// Remove habit from local storage
+  const habits = JSON.parse(localStorage.getItem('habits')) || [];
+  const updatedHabits = habits.filter(h => h.name !== habit.name);
+  localStorage.setItem('habits', JSON.stringify(updatedHabits));
+});
+
+cancelBtn.addEventListener("click", function() {
+deleteModal.style.display = "none";
+});
+}
