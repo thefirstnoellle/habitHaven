@@ -87,6 +87,12 @@ streak.textContent = count;
   const yesterday1 = yesterday.toDateString();
   if (goal === "true" && lastGoalDate === yesterday1){
     localStorage.setItem('goal', "false");
+  } else {
+    if (goal === "true" && lastGoalDate !== yesterday1){
+      localStorage.setItem('goal', "false");
+      streakCount = 0;
+      localStorage.setItem('streakCount', streakCount);
+    }
   }
 });
 
@@ -204,16 +210,17 @@ if (selectedIndex === 4) {
         updateStreak();
     }
 } 
-// else {
-//     // Check if goal was set yesterday, if not, reset streak
-//     const lastGoalDate = localStorage.getItem('lastGoalDate');
-//     const yesterday = new Date();
-//     yesterday.setDate(yesterday.getDate() - 1);
-//     const yesterday1 = yesterday.toDateString();
-//     if (lastGoalDate !== yesterday1) {
-//         resetStreak();
-//     }
-// }
+else {
+    // Check if goal was set yesterday, if not, reset streak
+    const lastGoalDate = localStorage.getItem('lastGoalDate');
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterday1 = yesterday.toDateString();
+    if (lastGoalDate !== yesterday1) {
+      console.log("not yesterday");
+        resetStreak();
+    }
+}
 });
 
 
