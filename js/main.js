@@ -27,7 +27,6 @@ renderCalendar(currentDate);
 function renderCalendar(date) {
   calendarContainer.innerHTML = '';
   const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-
 // Create day    
   for (let i = 0; i < 7; i++) {
     const day = new Date(date);
@@ -58,51 +57,37 @@ const modal = document.getElementById("myModal");
 const btn = document.getElementById("add-habit");
 // Get element that closes the modal
 const closeModal = document.getElementById("close");
+// button that saves new habit
 const newHabit = document.getElementById("newHabit");
+// habit name input by user
 const habitName = document.getElementById("habitName");
+// habit goal input by user
 const habitGoal = document.getElementById("habitGoal");
+// habit unit input by user
 const unit = document.getElementById("selectUnit");
+// container where habits are saved
 const habitContainer = document.getElementById("habitContainer");
 
-// When the user clicks the button, open the modal 
-btn.addEventListener("click", function() {
-  modal.style.display = "block";
-  habitName.focus();
-});
-
-// When the user clicks on x, modal closes
-closeModal.addEventListener("click", function() {
-  modal.style.display = "none";
-});
-
-// When the user clicks anywhere outside of the modal, modal closes
-window.addEventListener("click", function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-});
-
-// on page load, load habits from local storage on
+// EVENTS
 window.addEventListener('load', function() {
+// on page load, load habits from local storage
   const habits = JSON.parse(localStorage.getItem('habits')) || [];
   habits.forEach(habit => {
     createNewHabitElement(habit);
   });
-
-// on page load check if goal is true and if lastGoalSet is yesterday
-  const goal = this.localStorage.getItem('goal');
-  const lastGoalDate = this.localStorage.getItem('lastGoalDate');
+// on page load, display current streak
+const streak = document.getElementById("streak");
+const count = localStorage.getItem('streakCount');
+streak.textContent = count;
+// if goal is true and if lastGoalSet is yesterday, set goal to false
+  const goal = localStorage.getItem('goal');
+  const lastGoalDate = localStorage.getItem('lastGoalDate');
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
   const yesterday1 = yesterday.toDateString();
   if (goal === "true" && lastGoalDate === yesterday1){
-    const streak = document.getElementById("streak");
-    const count = localStorage.getItem('streakCount');
-    streak.textContent = count;
+    localStorage.setItem('goal', "false");
   }
-
-// if true increment and display new streak and then set goal to false
-// else check if streak is 0 and if not set it to 0 and set goal to false
 });
 
 // Create New Habit
@@ -130,6 +115,24 @@ newHabit.addEventListener("click", function() {
   habitName.value = "";
   habitGoal.value = "";
   unit.value = "";
+});
+
+// When the user clicks the button, open the modal 
+btn.addEventListener("click", function() {
+  modal.style.display = "block";
+  habitName.focus();
+});
+
+// When the user clicks on x, modal closes
+closeModal.addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+// When the user clicks anywhere outside of the modal, modal closes
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 });
 
 function createNewHabitElement(habit) {
@@ -200,18 +203,18 @@ if (selectedIndex === 4) {
         localStorage.setItem("lastGoalDate", today.toDateString());
         updateStreak();
     }
-} else {
-    // Check if goal was set yesterday, if not, reset streak
-    const lastGoalDate = localStorage.getItem('lastGoalDate');
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterday1 = yesterday.toDateString();
-    if (lastGoalDate !== yesterday1) {
-        resetStreak();
-    }
-}
-  }
-  );
+} 
+// else {
+//     // Check if goal was set yesterday, if not, reset streak
+//     const lastGoalDate = localStorage.getItem('lastGoalDate');
+//     const yesterday = new Date();
+//     yesterday.setDate(yesterday.getDate() - 1);
+//     const yesterday1 = yesterday.toDateString();
+//     if (lastGoalDate !== yesterday1) {
+//         resetStreak();
+//     }
+// }
+});
 
 
 // create delete modal
