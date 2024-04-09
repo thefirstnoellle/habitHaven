@@ -68,7 +68,6 @@ const unit = document.getElementById("selectUnit");
 // container where habits are saved
 const habitContainer = document.getElementById("habitContainer");
 
-// EVENTS
 window.addEventListener('load', function() {
 // on page load, load habits from local storage
   const habits = JSON.parse(localStorage.getItem('habits')) || [];
@@ -117,6 +116,7 @@ newHabit.addEventListener("click", function() {
     goal: habitGoal.value,
     unit: unit.value,
     color: habitColor.value,
+    progress: progressSelector.value
   };
 
   // Save habit to local storage
@@ -295,48 +295,3 @@ document.getElementById('progressSelector2').addEventListener('change', function
   const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
   progress.src = imgSrc;
 });
-// create delete for Placeholder habits
-function deletePlaceholder() {
-  // create delete modal
-const deleteModal = document.createElement("div");
-deleteModal.classList.add("deleteModal");
-
-// create delete modal content
-const deleteModalContent = document.createElement("div");
-deleteModalContent.classList.add("deleteModal-content");
-deleteModalContent.textContent = "Are you sure you want to delete this habit?";
-
-// create cancel button
-const cancelBtn = document.createElement("button");
-cancelBtn.classList.add("cancelBtn");
-cancelBtn.textContent = "Cancel";
-
-// create delete button
-const deleteBtn = document.createElement("button");
-deleteBtn.classList.add("deleteBtn");
-deleteBtn.textContent = "Delete Forever";
-
-window.appendChild(deleteModal);
-deleteModal.appendChild(deleteModalContent);
-deleteModalContent.appendChild(cancelBtn);
-deleteModalContent.appendChild(deleteBtn);
-
-// delete modal opens on double click
-document.getElementById("")
-.addEventListener("dblclick", function() {
-deleteModal.style.display = "block";
-});
-// Delete habit on button click
-deleteBtn.addEventListener("click", function () {
-  habitElement.style.display = "none";
-
-// Remove habit from local storage
-  const habits = JSON.parse(localStorage.getItem('habits')) || [];
-  const updatedHabits = habits.filter(h => h.name !== habit.name);
-  localStorage.setItem('habits', JSON.stringify(updatedHabits));
-});
-
-cancelBtn.addEventListener("click", function() {
-deleteModal.style.display = "none";
-});
-}

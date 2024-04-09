@@ -37,7 +37,7 @@
                         <p class="habitName">Drink Water</p>
                         <p class="habitGoal">Goal: 100 oz</p>
                         <select class="progressSelector" id="progressSelector">
-                            <option></option>
+                            <optionid="option0" value="0">0 oz</option>
                             <option id="option1" value="0.25">25 oz</option>
                             <option id="option2" value="0.50">50 oz</option>
                             <option id="option3" value="0.75">75 oz</option>
@@ -49,7 +49,7 @@
                         <p class="habitName">Walk More</p>
                         <p class="habitGoal">Goal: 10 km</p>
                         <select class="progressSelector" id="progressSelector1">
-                            <option></option>
+                            <option id="option0" value="0">0 km</option>
                             <option id="option1" value="0.25">2 km</option>
                             <option id="option2" value="0.5">5 km</option>
                             <option id="option3" value="0.75">7 km</option>
@@ -61,7 +61,7 @@
                         <p class="habitName">Study</p>
                         <p class="habitGoal">Goal: 15 hours</p>
                         <select class="progressSelector" id="progressSelector2">
-                            <option></option>
+                            <option id="option0" value="0">0 hours</option>
                             <option id="option1" value="0.25">4 hours</option>
                             <option id="option2" value="0.50">8 hours</option>
                             <option id="option3" value="0.75">12 hours</option>
@@ -91,15 +91,21 @@
                             <option value="ml">ml</option>
                             <option value="oz">oz</option>
                         </select>
-                        <label for="favcolor">Select a color:</label>
-                        <input type="color" id="habitColor" value="#BDD1C5">
+                        <label for="habitColor">Color:</label>
+                        <select name="color" id="habitColor">
+                            <option value="#BDD1C5">Sage</option>
+                            <option value="#9EABA2">Green</option>
+                            <option value="#EECC8C">Yellow</option>
+                            <option value="#E8B298">Orange</option>                         
+                            <option value="#D3A29D">Pink</option>                       
+                            </select>
                         <button id="newHabit">Save</button>
                     </div>
                 </div>
 
     
             <div class="streak">Current Streak:
-                <p id="streak">0</p>
+                <p id="streak"></p>
             </div>
             <div class="journal-nav">
                 <label></label>
