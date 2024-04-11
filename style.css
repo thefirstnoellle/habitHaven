@@ -519,14 +519,10 @@
     }
 
     /* Inspiration  page CSS */
-    .inspiration-main {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-    }
 
     .inspiration-main h3, .inspiration-main h2 {
         color: #A36361;
+        display:inline-block;
     }
 
     #quote-container {
@@ -547,14 +543,16 @@
 
     .inspiration-image img {
         width: 500px;
-        margin-top: 100px;
         border-radius: 10px;
+        float: right;
+        margin: 30px 0px 25px 30px;
     }
-
+    
     ul {
-        padding: 20px;
+        margin-top: 0;
+        margin-bottom: 50px;
+        padding-left: 25px;
     }
-
     ul a {
         color: black;
     }
