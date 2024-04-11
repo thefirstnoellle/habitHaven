@@ -130,7 +130,6 @@ newHabit.addEventListener("click", function() {
     goal: habitGoal.value,
     unit: unit.value,
     color: habitColor.value,
-    progress: progressSelector.value
   };
 
   // Save habit to local storage
@@ -288,7 +287,7 @@ deleteModal.style.display = "none";
 });
 }
 
-// functions for Placeholder habits
+// Function to adjust progress for Placeholder habits
 document.getElementById('progressSelector').addEventListener('change', function() {
   let selectedIndex = this.value;
   const progress = document.getElementById('progress');
