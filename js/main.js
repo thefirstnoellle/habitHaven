@@ -1,3 +1,17 @@
+// hamburger menu
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", function() {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+})
+
+document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", ()=> {
+  hamburger.classList.remove("active");
+  navMenu.classList.remove("active");
+}))
+
 // navigation JS
 function goToHome() {
   window.location.href = "index.html";
@@ -295,3 +309,38 @@ document.getElementById('progressSelector2').addEventListener('change', function
   const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
   progress.src = imgSrc;
 });
+
+// function to delete Placeholder
+function deletePlaceholder() {
+  const placeholder = document.getElementById("placeholderHabit");
+  // create delete modal
+const deleteModal = document.createElement("div");
+deleteModal.classList.add("deleteModal");
+// create delete modal content
+const deleteModalContent = document.createElement("div");
+deleteModalContent.classList.add("deleteModal-content");
+deleteModalContent.textContent = "Are you sure you want to delete this habit?";
+// create cancel button
+const cancelBtn = document.createElement("button");
+cancelBtn.classList.add("cancelBtn");
+cancelBtn.textContent = "Cancel";
+// create delete button
+const deleteBtn = document.createElement("button");
+deleteBtn.classList.add("deleteBtn");
+deleteBtn.textContent = "Delete Forever";
+
+  placeholder.appendChild(deleteModal);
+  deleteModal.appendChild(deleteModalContent);
+  deleteModalContent.appendChild(cancelBtn);
+  deleteModalContent.appendChild(deleteBtn);
+// display delete modal
+  deleteModal.style.display = "block";
+// Delete habit on button click
+deleteBtn.addEventListener("click", function () {
+  placeholder.style.display = "none";
+});
+// Close modal on button click
+cancelBtn.addEventListener("click", function() {
+deleteModal.style.display = "none";
+});
+}

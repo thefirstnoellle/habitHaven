@@ -41,28 +41,42 @@
         width: 90px;
     }
 
-    .page-links {
+    .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-size: 15px;
     }
-    .page-links button {
+    
+    .nav-menu {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    .nav-link {
         background-color: #E8B298;
         border: none;
         color: #FEEAD4;
-        margin: 16px;
         font-family: "Poppins";
-        font-size: 15px;
-        transition-duration: 0.4s;
+        transition: 0.4s;
     }
-
-    .page-links button:hover {
+    
+    .nav-link:hover {
         color: #A36361;
+        cursor: pointer;
+    }
+    
+    .hamburger{
+        display: none;
         cursor: pointer;
     }
 
     .icon {
-        display: none;
+        border: none;
+        color: #FEEAD4;
+        font-size: 18px;
+        background-color: #E8B298;
+        padding: 0;
     }
 
     .main {
@@ -387,11 +401,6 @@
             justify-content: center;
         }
 
-        .navigation {
-            font-size: 12px;
-            display: flex;
-            flex-shrink: 1;
-        }
         
         .main {
             width: 100%;
@@ -410,7 +419,29 @@
 
     }
 
-    @media screen and (max-width: 700px) {
+    @media (max-width: 768px) {
+        .hamburger {
+            display: block;
+        }
+        
+        .nav-menu {
+            position: fixed;
+            top: -100%;
+            gap: 0;
+            flex-direction: column;
+            width: 100%;
+            transition: 0.3s;
+            background-color: #E8B298;
+        }
+    
+        .nav-menu.active {
+            top: 50px;
+            padding: 10px 0px;
+            display: flex;
+            align-items: center;
+            left: 0;
+        }
+    
         .placeholderHabit, .habitElement {
             height: auto;
             display: flex;
@@ -419,11 +450,27 @@
     }
 
     @media screen and (max-width: 375px) {
-        .page-links button:not(:first-child) {display: none;}
-        .page-links button {
-        display: block;
-        font-size: 20px;
-        }
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: -100%;
+                gap: 0;
+                flex-direction: column;
+                width: 100%;
+                transition: 0.3s;
+                background-color: #E8B298;
+            }
+        
+            .nav-menu.active {
+                top: 50px;
+                padding: 10px 0px;
+                display: flex;
+                align-items: center;
+                left: 0;
+            }
         
         .habitGoal {
             margin-left: 0;
