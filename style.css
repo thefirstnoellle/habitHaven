@@ -258,11 +258,11 @@
         box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
     }
 
-    #habit2 {
+    #placeholderHabit1 {
         background-color: #D3A29D;
     }
 
-   #habit3 {
+   #placeholderHabit2 {
         background-color: #9EABA2;
     }
 
@@ -441,7 +441,22 @@
             align-items: center;
             left: 0;
         }
-    
+        
+        .main {
+            flex-wrap: wrap-reverse;
+        }
+
+        .journal-nav {
+            display: none;
+        }
+
+        .calendar-container{
+            display: none;
+        }
+
+        .habit-container {
+            margin-top: 0;
+        }
         .placeholderHabit, .habitElement {
             height: auto;
             display: flex;
@@ -450,7 +465,10 @@
     }
 
     @media screen and (max-width: 375px) {
-            .hamburger {
+        #home {
+            font-size: 1.5rem;
+        }    
+        .hamburger {
                 display: block;
             }
             

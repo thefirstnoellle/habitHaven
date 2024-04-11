@@ -311,36 +311,87 @@ document.getElementById('progressSelector2').addEventListener('change', function
 });
 
 // function to delete Placeholder
-function deletePlaceholder() {
   const placeholder = document.getElementById("placeholderHabit");
-  // create delete modal
-const deleteModal = document.createElement("div");
-deleteModal.classList.add("deleteModal");
-// create delete modal content
-const deleteModalContent = document.createElement("div");
-deleteModalContent.classList.add("deleteModal-content");
-deleteModalContent.textContent = "Are you sure you want to delete this habit?";
-// create cancel button
-const cancelBtn = document.createElement("button");
-cancelBtn.classList.add("cancelBtn");
-cancelBtn.textContent = "Cancel";
-// create delete button
-const deleteBtn = document.createElement("button");
-deleteBtn.classList.add("deleteBtn");
-deleteBtn.textContent = "Delete Forever";
+  const placeholder1 = document.getElementById("placeholderHabit1");
+  const placeholder2 = document.getElementById("placeholderHabit2");
 
-  placeholder.appendChild(deleteModal);
+// create delete modal
+  const deleteModal = document.createElement("div");
+  deleteModal.classList.add("deleteModal");
+// create delete modal content
+  const deleteModalContent = document.createElement("div");
+  deleteModalContent.classList.add("deleteModal-content");
+  deleteModalContent.textContent = "Are you sure you want to delete this habit?";
+// create cancel button
+  const cancelBtn = document.createElement("button");
+  cancelBtn.classList.add("cancelBtn");
+  cancelBtn.textContent = "Cancel";
+// create delete button
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("deleteBtn");
+  deleteBtn.textContent = "Delete Forever";
+
+  habitContainer.appendChild(deleteModal);
   deleteModal.appendChild(deleteModalContent);
   deleteModalContent.appendChild(cancelBtn);
   deleteModalContent.appendChild(deleteBtn);
-// display delete modal
-  deleteModal.style.display = "block";
-// Delete habit on button click
-deleteBtn.addEventListener("click", function () {
-  placeholder.style.display = "none";
-});
-// Close modal on button click
-cancelBtn.addEventListener("click", function() {
-deleteModal.style.display = "none";
-});
+
+
+// Check if the placeholder should be removed
+if (localStorage.getItem('removePlaceholder') === 'true') {
+  placeholder.remove();
 }
+if (localStorage.getItem('removePlaceholder1') === 'true') {
+  placeholder1.remove();
+}
+if (localStorage.getItem('removePlaceholder2') === 'true') {
+  placeholder2.remove();
+}
+// event listener to delete first placeholder
+  placeholder.addEventListener('dblclick', function() {
+  // display delete modal
+    deleteModal.style.display = "block";
+  // Delete habit on button click
+    deleteBtn.addEventListener("click", function () {
+      placeholder.remove();
+      localStorage.setItem('removePlaceholder', 'true');
+      deleteModal.style.display = "none";
+    });
+  // Close modal on button click
+    cancelBtn.addEventListener("click", function() {
+      deleteModal.style.display = "none";
+    });
+    })
+
+// event listener to delete second placeholder
+  placeholder1.addEventListener('dblclick', function() {
+  // display delete modal
+    deleteModal.style.display = "block";
+  // Delete habit on button click
+    deleteBtn.addEventListener("click", function () {
+      placeholder1.remove();
+      localStorage.setItem('removePlaceholder1', 'true');
+      deleteModal.style.display = "none";
+    });
+  // Close modal on button click
+    cancelBtn.addEventListener("click", function() {
+      deleteModal.style.display = "none";
+    });
+    })
+
+// event listener to delete third placeholder
+  placeholder2.addEventListener('dblclick', function() {
+    // display delete modal
+    deleteModal.style.display = "block";
+    // Delete habit on button click
+    deleteBtn.addEventListener("click", function () {
+      placeholder2.remove();
+      localStorage.setItem('removePlaceholder2', 'true');
+      deleteModal.style.display = "none";
+    });
+    // Close modal on button click
+    cancelBtn.addEventListener("click", function() {
+      deleteModal.style.display = "none";
+    });
+    })
+
