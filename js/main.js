@@ -33,7 +33,7 @@ window.location.href = "journal.html";
 // Global Variables
 
 const calendarContainer = document.getElementById('calendar');
-const modal = document.getElementById("myModal");
+const modal = document.getElementById("modal");
 // Get button that opens the modal
 const btn = document.getElementById("add-habit");
 // Get element that closes the modal
