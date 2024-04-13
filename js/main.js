@@ -296,8 +296,16 @@ function progressChangeEvent(progressSelector, progressImg) {
 
 function completeDayEvent(progressSelector, progressImg){
     completeDay.addEventListener("click", function() {
-        progressImg.src = "images/progress-100.png";
-        progressSelector.style.display = "none";
+        const progressSelectors = document.querySelectorAll(".progressSelector");
+        const progressImgs = document.querySelectorAll(".progress");
+ // hide progress selector       
+        progressSelectors.forEach(progressSelector => {
+            progressSelector.style.display = "none";
+        });
+// change progress image to display 100%
+        progressImgs.forEach(progressImg => {
+            progressImg.src = "images/progress-100.png";
+        });
         today = new Date();
         localStorage.setItem("completeDay", today.toDateString());
 
