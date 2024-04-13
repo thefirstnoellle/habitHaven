@@ -378,7 +378,7 @@
         margin-right: 20px;
     }
 
-    .completeDay button:hover {
+    .completeDay:hover {
         background-color: #D3A29D;
         color: white;
         cursor: pointer;
@@ -451,7 +451,7 @@
             transition: 0.3s;
             background-color: #E8B298;
         }
-    
+
         .nav-menu.active {
             top: 50px;
             padding: 10px 0px;
