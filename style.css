@@ -380,7 +380,7 @@
         right: 0;
     }
 
-    /* responsive design for index */
+/* responsive design for main page */
     @media screen and (max-width: 1000px) {
         .header {
             width: 100%;
@@ -522,7 +522,7 @@
 
     .inspiration-main h3, .inspiration-main h2 {
         color: #A36361;
-        display:inline-block;
+        display: inline-block;
     }
 
     #quote-container {
@@ -557,9 +557,34 @@
         color: black;
     }
 
+/* response design for Inspiration */
+    @media screen and (max-width: 1000px) {
+        .inspiration-main {
+            padding: 75px;
+        }
 
-    /* Journal page CSS */
+    }
 
+    @media screen and (max-width: 550px) {
+        .inspiration-main {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            font-size: 0.75rem;
+        }
+
+    .inspiration-image {
+       display: none;
+    }
+}
+
+/* Journal page CSS */
+
+    .journal-main {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
     .entry {
         display: flex;
         flex-direction: column;
@@ -643,6 +668,34 @@
         padding: 16px;
         font-size: 14px;
         box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+        overflow: hidden;
     }
 
+    /* response design for Journal */
+@media screen and (max-width: 1000px) {
+    .journal-main{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+.entry {
+    width: 75%;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+#journal-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+}
+
+.title-label, .entry-label {
+    width: 75%;
+}
+
+}
 
