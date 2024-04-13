@@ -378,7 +378,7 @@
         margin-right: 20px;
     }
 
-    .completeDay:hover {
+    .completeDay button:hover {
         background-color: #D3A29D;
         color: white;
         cursor: pointer;
@@ -443,7 +443,6 @@
         }
         
         .nav-menu {
-            position: fixed;
             top: -100%;
             gap: 0;
             flex-direction: column;
@@ -453,7 +452,8 @@
         }
     
         .nav-menu.active {
-            top: 50px;
+            position: fixed;
+            top: 100px;
             padding: 10px 0px;
             display: flex;
             align-items: center;
