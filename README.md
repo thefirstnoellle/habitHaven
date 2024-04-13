@@ -3,11 +3,7 @@
 ### Overview
 Welcome to HabitHaven! HabitHaven is not just a habit-tracking web app; it's your dedicated partner in promoting and maintaining healthy habits. Navigate your journey to a better you with ease as our user-friendly features empower you to track and celebrate your progress effortlessly with our streak counter.
 
-Login to add more habits, track your streaks, or view your diary!
-
-### Purpose
-
-To create a habit tracker that allows you you keep track of your daily, weekly, and monthly habits with a user-friendly interface that's minimalistic and modern, and focuses on promoting and maintaining habits by letting users view their current, and longest, streak.
+Add your own habits, track streaks, or record your progress in your journal.
 
 ## 💡 Inspiration
 
@@ -19,6 +15,7 @@ My inspiration for this project was that I wanted an all-in-one app where I coul
 - CSS
 - JavaScript
 - Figma for the design prototype
+- Arcade for the demo
 
 
 ## Acknowledgements
