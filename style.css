@@ -422,7 +422,7 @@
         
         .main {
             width: 100%;
-            margin: 0;
+            margin: 0 0 100px 0;
             padding: 10px;
             display: flex;
             flex-direction: row;
@@ -443,6 +443,7 @@
         }
         
         .nav-menu {
+            position: fixed;
             top: -100%;
             gap: 0;
             flex-direction: column;
@@ -452,8 +453,7 @@
         }
     
         .nav-menu.active {
-            position: fixed;
-            top: 100px;
+            top: 50px;
             padding: 10px 0px;
             display: flex;
             align-items: center;
