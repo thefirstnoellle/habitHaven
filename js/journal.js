@@ -29,13 +29,14 @@ function goToJournal() {
     window.location.href = "journal.html";
 }
 
-// journal entry event
+// Global Variables
 const dateSelector = document.getElementById("date-selector");
 const journalEntry = document.getElementById("journal-entry");
 const saveBtn = document.getElementById("save-entry");
 const displayJournal = document.getElementById("journal-container");
 const deleteEntry = document.getElementById("delete-entry");
-// load saved journals from local storage
+
+// Load saved journals from local storage on page load
 window.addEventListener('load', function () {
     const savedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
     savedEntries.forEach(entry => {
@@ -45,6 +46,7 @@ window.addEventListener('load', function () {
     });
 });
 
+// Save user entry when button is clicked, alert if required fields are empty
 saveBtn.addEventListener('click', function () {
     const inputText = journalEntry.value;
     const selectedDate = dateSelector.value;
@@ -70,7 +72,7 @@ saveBtn.addEventListener('click', function () {
     dateSelector.value = '';
     journalEntry.value = '';
 });
-
+// Delete all journal entries
 deleteEntry.addEventListener("click", function () {
     localStorage.removeItem("journalEntries");
     displayJournal.innerHTML = "";
