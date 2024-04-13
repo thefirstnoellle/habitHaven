@@ -48,6 +48,10 @@ const habitGoal = document.getElementById("habitGoal");
 const unit = document.getElementById("selectUnit");
 // container where habits are saved
 const habitContainer = document.getElementById("habitContainer");
+// Button to save Progress for day
+const completeDay = document.createElement("button");
+completeDay.classList.add("completeDay");
+completeDay.textContent = "Complete All Habits";
 // create delete modal
 const deleteModal = document.createElement("div");
 deleteModal.classList.add("deleteModal");
@@ -68,13 +72,14 @@ habitContainer.appendChild(deleteModal);
 deleteModal.appendChild(deleteModalContent);
 deleteModalContent.appendChild(cancelBtn);
 deleteModalContent.appendChild(deleteBtn);
-// Placeholders
+// Placeholder Habits
 const placeholder = document.getElementById("placeholderHabit");
 const placeholder1 = document.getElementById("placeholderHabit1");
 const placeholder2 = document.getElementById("placeholderHabit2");
 
 
-// On Page Load
+
+// On Page Load 
 window.addEventListener('load', function() {
     // load habits from local storage
     const habits = JSON.parse(localStorage.getItem('habits')) || [];
@@ -91,13 +96,28 @@ window.addEventListener('load', function() {
     } else {
         streak.textContent = count;
     }
-    // if goal is true and if lastGoalSet is yesterday, set goal to false
+
     const goal = localStorage.getItem('goal');
     const lastGoalDate = localStorage.getItem('lastGoalDate');
     const today = new Date();
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
     const yesterday1 = yesterday.toDateString();
+    const completeDay = localStorage.getItem("completeDay");
+// if day was already completed, display habits as complete
+    if (completeDay === today.toDateString()) {
+        const progressSelectors = document.querySelectorAll(".progressSelector");
+        const progressImgs = document.querySelectorAll(".progress");
+ // hide progress selector       
+        progressSelectors.forEach(progressSelector => {
+            progressSelector.style.display = "none";
+        });
+// change progress image to display 100%
+        progressImgs.forEach(progressImg => {
+            progressImg.src = "images/progress-100.png";
+        });
+    }
+// if goal is true and if lastGoalSet is yesterday, set goal to false
     if (goal === "true" && lastGoalDate === yesterday1){
         localStorage.setItem('goal', "false");
     } else if (goal === "true" && lastGoalDate === today.toDateString()) {
@@ -109,6 +129,7 @@ window.addEventListener('load', function() {
         localStorage.setItem('streakCount', streakCount);
         }
     }
+
 });
 
 
@@ -202,10 +223,12 @@ newHabit.addEventListener("click", function() {
 
     const progressImg = document.createElement("img");
     progressImg.classList.add("progress");
+    progressImg.setAttribute("id", "progressImg");
     progressImg.src = "images/progress-0.png";
 
     const progressSelector = document.createElement("select");
     progressSelector.classList.add("progressSelector");
+    progressSelector.setAttribute("id", "progressSelector");
 
     const progressOptions = [0, 0.25, 0.5, 0.75, 1];
     progressOptions.forEach(option => {
@@ -222,18 +245,20 @@ newHabit.addEventListener("click", function() {
     habitElement.appendChild(habitGoalValue);
     habitElement.appendChild(progressSelector);
     habitElement.appendChild(progressImg);
+    habitContainer.appendChild(completeDay);
 
 
     // Call the progressChangeEvent function and pass progressSelector and progressImg
     progressChangeEvent(progressSelector, progressImg);
-    
     // Call the deleteHabitElement function and pass habit
     deleteHabitElement(habitElement, habit);
+    // Complete all today's habits
+    completeDayEvent(progressSelector, progressImg);
 }
 
  
 
-// Change progress image when user selects option
+// Change progress image when user selects option. If user hasn't recorded a streak yet today, streak updates
 function progressChangeEvent(progressSelector, progressImg) {
     // Add event listener to progressSelector
     progressSelector.addEventListener("change", function() {
@@ -246,7 +271,8 @@ function progressChangeEvent(progressSelector, progressImg) {
 // Save selectedIndex to local storage
     localStorage.setItem("selectedIndex", selectedIndex);
 
-    // Check if goal is achieved
+    
+    // Check if streak is achieved for today
     if (selectedIndex === 4) {
         const goal = localStorage.getItem("goal");
         if (goal !== "true") {
@@ -262,11 +288,35 @@ function progressChangeEvent(progressSelector, progressImg) {
         yesterday.setDate(yesterday.getDate() - 1);
         const yesterday1 = yesterday.toDateString();
         if (lastGoalDate !== yesterday1) {
-        console.log("not yesterday");
             resetStreak();
         }
     }
 });
+}
+
+function completeDayEvent(progressSelector, progressImg){
+    completeDay.addEventListener("click", function() {
+        progressImg.src = "images/progress-100.png";
+        progressSelector.style.display = "none";
+        today = new Date();
+        localStorage.setItem("completeDay", today.toDateString());
+
+        const goal = localStorage.getItem("goal");
+        if (goal !== "true") {
+            localStorage.setItem("goal", "true");
+            const today = new Date();
+            localStorage.setItem("lastGoalDate", today.toDateString());
+            updateStreak();
+        }  else {
+        const lastGoalDate = localStorage.getItem('lastGoalDate');
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterday1 = yesterday.toDateString();
+        if (lastGoalDate !== yesterday1) {
+            resetStreak();
+        }
+        }
+    });
 }
 
 // Function to update streak count
@@ -387,3 +437,4 @@ placeholder2.ondblclick = function() {
     deleteModal.style.display = "none";
     });
     }
+;
