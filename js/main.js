@@ -87,16 +87,6 @@ window.addEventListener('load', function() {
         createNewHabitElement(habit);
     });
 
-    // display current streak, if streak is null - show 0
-    const streak = document.getElementById("streak");
-    const count = localStorage.getItem('streakCount');
-    if (count === null) {
-        streak.textContent = 0;
-        localStorage.setItem('count', '0');
-    } else {
-        streak.textContent = count;
-    }
-
     const goal = localStorage.getItem('goal');
     const lastGoalDate = localStorage.getItem('lastGoalDate');
     const today = new Date();
@@ -104,6 +94,7 @@ window.addEventListener('load', function() {
     yesterday.setDate(yesterday.getDate() - 1);
     const yesterday1 = yesterday.toDateString();
     const completeDay = localStorage.getItem("completeDay");
+
 // if day was already completed, display habits as complete
     if (completeDay === today.toDateString()) {
         const progressSelectors = document.querySelectorAll(".progressSelector");
@@ -116,6 +107,16 @@ window.addEventListener('load', function() {
         progressImgs.forEach(progressImg => {
             progressImg.src = "images/progress-100.png";
         });
+    }
+
+// display current streak, if streak is null - show 0
+    const streak = document.getElementById("streak");
+    const count = localStorage.getItem('streakCount');
+    if (count === null) {
+        streak.textContent = 0;
+        localStorage.setItem('count', '0');
+    } else {
+        streak.textContent = count;
     }
 
 // check if reminder has been saved, if reminder is saved and date is today, display reminder
