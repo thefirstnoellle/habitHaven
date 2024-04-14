@@ -233,7 +233,7 @@ newHabit.addEventListener("click", function() {
     const progressOptions = [0, 0.25, 0.5, 0.75, 1];
     progressOptions.forEach(option => {
         const progressOption = document.createElement("option");
-        progressOption.text = Math.round(habit.goal * option) + " " + habit.unit;
+        progressOption.text = (Math.round((habit.goal * option) * 10) / 10) + " " + habit.unit;
         progressSelector.add(progressOption);
     });
 
