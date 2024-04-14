@@ -117,6 +117,18 @@ window.addEventListener('load', function() {
             progressImg.src = "images/progress-100.png";
         });
     }
+
+// check if reminder has been saved, if reminder is saved and date is today, display reminder
+// if reminder is saved but date is not today, display placeholder text
+const reminder = document.getElementById("reminder");
+savedReminder = localStorage.getItem("reminder");
+const lastReminderSaved = localStorage.getItem('lastReminderSaved');
+if (savedReminder && lastReminderSaved === today.toDateString()) {
+    reminder.value = savedReminder;
+} else {
+    reminder.value = "";
+}
+
 // if goal is true and if lastGoalSet is yesterday, set goal to false
     if (goal === "true" && lastGoalDate === yesterday1){
         localStorage.setItem('goal', "false");
@@ -293,7 +305,21 @@ function progressChangeEvent(progressSelector, progressImg) {
     }
 });
 }
-
+// when save reminder is clicked, text from reminder is saved with today's date
+function saveReminder() {
+    const saveReminderBtn = document.getElementById("saveReminder");
+    saveReminderBtn.addEventListener("click", function() {
+        const reminder = document.getElementById("reminder").value;
+        if (reminder !== "") {
+        localStorage.setItem("reminder", reminder);
+        const today = new Date();
+        localStorage.setItem("lastReminderSaved", today.toDateString());
+    } 
+});
+}
+// function to call saveReminder
+saveReminder();
+// when complete day button is clicked, progress img update and progress selector hidden
 function completeDayEvent(progressSelector, progressImg){
     completeDay.addEventListener("click", function() {
         const progressSelectors = document.querySelectorAll(".progressSelector");
