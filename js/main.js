@@ -369,22 +369,76 @@ function deleteHabitElement(habitElement, habit) {
 document.getElementById('progressSelector').addEventListener('change', function() {
     let selectedIndex = this.value;
     const progress = document.getElementById('progress');
-    const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
+    const imgSrc = selectedIndex === "0" ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
     progress.src = imgSrc;
-    });
+    if (selectedIndex === "1") { // Check if selectedIndex is "1" (value of option4)
+        const goal = localStorage.getItem("goal");
+        if (goal !== "true") {
+            localStorage.setItem("goal", "true");
+            const today = new Date();
+            localStorage.setItem("lastGoalDate", today.toDateString());
+            updateStreak();
+        }
+    } else { 
+        // Check if goal was set yesterday, if not, reset streak 
+        const lastGoalDate = localStorage.getItem('lastGoalDate');
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterday1 = yesterday.toDateString();
+        if (lastGoalDate !== yesterday1) {
+            resetStreak();
+        }
+    }
+});
 
 document.getElementById('progressSelector1').addEventListener('change', function() {
     let selectedIndex = this.value;
     const progress = document.getElementById('progress1');
-    const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
+    const imgSrc = selectedIndex === "0" ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
     progress.src = imgSrc;
+    if (selectedIndex === "1") { // Check if selectedIndex is "1" (value of option4)
+        const goal = localStorage.getItem("goal");
+        if (goal !== "true") {
+            localStorage.setItem("goal", "true");
+            const today = new Date();
+            localStorage.setItem("lastGoalDate", today.toDateString());
+            updateStreak();
+        }
+    } else { 
+        // Check if goal was set yesterday, if not, reset streak 
+        const lastGoalDate = localStorage.getItem('lastGoalDate');
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterday1 = yesterday.toDateString();
+        if (lastGoalDate !== yesterday1) {
+            resetStreak();
+        }
+    }
 });
 
 document.getElementById('progressSelector2').addEventListener('change', function() {
     let selectedIndex = this.value;
     const progress = document.getElementById('progress2');
-    const imgSrc = selectedIndex === 0 ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
+    const imgSrc = selectedIndex === "0" ? "images/progress-0.png" : `images/progress-${selectedIndex * 100}.png`;
     progress.src = imgSrc;
+    if (selectedIndex === "1") { // Check if selectedIndex is "1" (value of option4)
+        const goal = localStorage.getItem("goal");
+        if (goal !== "true") {
+            localStorage.setItem("goal", "true");
+            const today = new Date();
+            localStorage.setItem("lastGoalDate", today.toDateString());
+            updateStreak();
+        }
+    } else { 
+        // Check if goal was set yesterday, if not, reset streak 
+        const lastGoalDate = localStorage.getItem('lastGoalDate');
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterday1 = yesterday.toDateString();
+        if (lastGoalDate !== yesterday1) {
+            resetStreak();
+        }
+    }
 });
 
 
