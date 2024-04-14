@@ -341,7 +341,6 @@
     textarea {
         resize: none;
         height: 75%;
-        width: 80%;
         background-color: #feead4a0;
         border: none;
         font-family: "Poppins";
@@ -581,6 +580,13 @@
 
     }
 
+    @media screen and (max-width: 765px){
+        .inspiration-image img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
     @media screen and (max-width: 550px) {
         .inspiration-main {
             display: flex;
@@ -588,10 +594,6 @@
             padding: 10px;
             font-size: 0.75rem;
         }
-
-    .inspiration-image {
-       display: none;
-    }
 }
 
 /* Journal page CSS */
@@ -605,7 +607,7 @@
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        width: 500px;
+        width: 400px;
     }
 
     .title-label, .entry-label {
