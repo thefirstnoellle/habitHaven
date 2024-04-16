@@ -78,7 +78,6 @@ const placeholder1 = document.getElementById("placeholderHabit1");
 const placeholder2 = document.getElementById("placeholderHabit2");
 
 
-
 // On Page Load 
 window.addEventListener('load', function() {
     // load habits from local storage
@@ -94,6 +93,7 @@ window.addEventListener('load', function() {
     yesterday.setDate(yesterday.getDate() - 1);
     const yesterday1 = yesterday.toDateString();
     const completeDay = localStorage.getItem("completeDay");
+    const updatedProgressValue = localStorage.getItem('updatedProgress');
 
 // if day was already completed, display habits as complete
     if (completeDay === today.toDateString()) {
@@ -107,6 +107,20 @@ window.addEventListener('load', function() {
         progressImgs.forEach(progressImg => {
             progressImg.src = "images/progress-100.png";
         });
+    } else if (updatedProgressValue !== today.toDateString()) {
+        const progressImgs = document.querySelectorAll(".progress");
+        const habits = JSON.parse(localStorage.getItem('habits')) || [];
+        progressImgs.forEach(progressImg => {
+            progressImg.src = "images/progress-0.png";
+        });
+    
+        // Remove "progressImg" property from habits
+        habits.forEach(habit => {
+            delete habit.progressImg;
+        });
+        
+        // Update local storage with modified habits
+        localStorage.setItem('habits', JSON.stringify(habits));
     }
 
 // display current streak, if streak is null - show 0
@@ -125,7 +139,10 @@ const reminder = document.getElementById("reminder");
 savedReminder = localStorage.getItem("reminder");
 const lastReminderSaved = localStorage.getItem('lastReminderSaved');
 if (savedReminder && lastReminderSaved === today.toDateString()) {
+    const saveReminderBtn = this.document.getElementById("saveReminder");
     reminder.value = savedReminder;
+    reminder.disabled = true;
+    saveReminderBtn.style.display = "none";
 } else {
     reminder.value = "";
 }
@@ -144,7 +161,6 @@ if (savedReminder && lastReminderSaved === today.toDateString()) {
     }
 
 });
-
 
 // Create Calendar
 let currentDate = new Date();
@@ -237,7 +253,8 @@ newHabit.addEventListener("click", function() {
     const progressImg = document.createElement("img");
     progressImg.classList.add("progress");
     progressImg.setAttribute("id", "progressImg");
-    progressImg.src = "images/progress-0.png";
+    // Initialize src from the habit object if it exists in local storage
+    progressImg.src = habit.progressImg || "images/progress-0.png";
 
     const progressSelector = document.createElement("select");
     progressSelector.classList.add("progressSelector");
@@ -262,17 +279,15 @@ newHabit.addEventListener("click", function() {
 
 
     // Call the progressChangeEvent function and pass progressSelector and progressImg
-    progressChangeEvent(progressSelector, progressImg);
+    progressChangeEvent(progressSelector, progressImg, habit);
     // Call the deleteHabitElement function and pass habit
     deleteHabitElement(habitElement, habit);
     // Complete all today's habits
     completeDayEvent(progressSelector, progressImg);
 }
 
- 
-
 // Change progress image when user selects option. If user hasn't recorded a streak yet today, streak updates
-function progressChangeEvent(progressSelector, progressImg) {
+function progressChangeEvent(progressSelector, progressImg, habit) {
     // Add event listener to progressSelector
     progressSelector.addEventListener("change", function() {
     // Get the selectedIndex
@@ -283,7 +298,18 @@ function progressChangeEvent(progressSelector, progressImg) {
     progressImg.src = imgSrc;
 // Save selectedIndex to local storage
     localStorage.setItem("selectedIndex", selectedIndex);
-
+    // Update the habit object with progressImg value
+    habit.progressImg = imgSrc;
+     // Update habit object in local storage
+     const habits = JSON.parse(localStorage.getItem('habits')) || [];
+     const updatedHabits = habits.map(item => {
+         if (item.name === habit.name && item.goal === habit.goal) {
+             return habit;
+         }
+         return item;
+     });
+     localStorage.setItem('habits', JSON.stringify(updatedHabits));
+     localStorage.setItem("updatedProgress", new Date().toDateString());
     
     // Check if streak is achieved for today
     if (selectedIndex === 4) {
@@ -304,22 +330,24 @@ function progressChangeEvent(progressSelector, progressImg) {
             resetStreak();
         }
     }
+
 });
 }
 // when save reminder is clicked, text from reminder is saved with today's date
 function saveReminder() {
     const saveReminderBtn = document.getElementById("saveReminder");
-    saveReminderBtn.addEventListener("click", function() {
+    
         const reminder = document.getElementById("reminder").value;
+        const textarea = document.getElementById("reminder");
         if (reminder !== "") {
         localStorage.setItem("reminder", reminder);
         const today = new Date();
         localStorage.setItem("lastReminderSaved", today.toDateString());
+        textarea.disabled = true;
+        saveReminderBtn.style.display = "none";
     } 
-});
 }
-// function to call saveReminder
-saveReminder();
+
 // when complete day button is clicked, progress img update and progress selector hidden
 function completeDayEvent(progressSelector, progressImg){
     completeDay.addEventListener("click", function() {
