@@ -145,7 +145,7 @@ body {
     outline: none;
 }
 
-#clos, #closeEditModal {
+#close, #closeEditModal {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
