@@ -46,7 +46,10 @@ const habitName = document.getElementById("habitName");
 const habitGoal = document.getElementById("habitGoal");
 // habit unit input by user
 const unit = document.getElementById("selectUnit");
+// Edit Modal
 const editModal = document.getElementById("editModal");
+// Close Edit Modal
+const closeEditModal = document.getElementById("closeEditModal");
 // button that saves habit edits
 const editHabit = document.getElementById("editHabit");
 // container where habits are saved
@@ -214,6 +217,17 @@ btn.addEventListener("click", function() {
       modal.style.display = "none";
     }
   });
+    // When the user clicks on x, modal closes
+    closeEditModal.addEventListener("click", function() {
+        editModal.style.display = "none";
+      });
+      
+      // When the user clicks anywhere outside of the modal, modal closes
+      window.addEventListener("click", function(event) {
+        if (event.target == editModal) {
+          editModal.style.display = "none";
+        }
+      });
 
 
 // When user clicks "Save" to add a new habit, display alert if required fields are blank
