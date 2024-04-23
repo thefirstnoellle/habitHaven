@@ -439,15 +439,18 @@ function editHabitElement(habitElement, habit, editBtn) {
 
             // Update habit object in local storage
             const habits = JSON.parse(localStorage.getItem('habits')) || [];
-            const updatedHabits = habits.map(item => {
+            
+            let updatedHabits = habits.map(item => {
                 if (item.name === habit.name && item.goal === habit.goal) {
-                    return habit;
-                }
+                    return;
+                } else {
                 habitElement.style.display = "none";
-                removeItem()
+                removeItem(habits);
                 localStorage.setItem('habits', JSON.stringify(updatedHabits));
                 return item;
-                });
+                }
+                
+            });
 
             // Clear values from modal after habit is edited
             habitName.value = "";
@@ -462,7 +465,6 @@ function editHabitElement(habitElement, habit, editBtn) {
         editBtn.style.display = "none";
         editBtn.classList.remove("active");
     });
-
 });
 }
 
