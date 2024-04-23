@@ -46,6 +46,9 @@ const habitName = document.getElementById("habitName");
 const habitGoal = document.getElementById("habitGoal");
 // habit unit input by user
 const unit = document.getElementById("selectUnit");
+const editModal = document.getElementById("editModal");
+// button that saves habit edits
+const editHabit = document.getElementById("editHabit");
 // container where habits are saved
 const habitContainer = document.getElementById("habitContainer");
 // Button to save Progress for day
@@ -72,6 +75,7 @@ habitContainer.appendChild(deleteModal);
 deleteModal.appendChild(deleteModalContent);
 deleteModalContent.appendChild(cancelBtn);
 deleteModalContent.appendChild(deleteBtn);
+
 // Placeholder Habits
 const placeholder = document.getElementById("placeholderHabit");
 const placeholder1 = document.getElementById("placeholderHabit1");
@@ -267,6 +271,11 @@ newHabit.addEventListener("click", function() {
         progressSelector.add(progressOption);
     });
 
+    // Create edit button
+    const editBtn = document.createElement("img");
+    editBtn.setAttribute("src", "images/edit.png");
+    editBtn.classList.add("edit-button");
+
     // Set background color
     habitElement.style.backgroundColor= habit.color;
     
@@ -275,15 +284,18 @@ newHabit.addEventListener("click", function() {
     habitElement.appendChild(habitGoalValue);
     habitElement.appendChild(progressSelector);
     habitElement.appendChild(progressImg);
+    habitElement.appendChild(editBtn);
     habitContainer.appendChild(completeDay);
 
 
     // Call the progressChangeEvent function and pass progressSelector and progressImg
     progressChangeEvent(progressSelector, progressImg, habit);
-    // Call the deleteHabitElement function and pass habit
-    deleteHabitElement(habitElement, habit);
-    // Complete all today's habits
+    // Call the editHabitElement function and pass habitElement, habit, editBtn
+    editHabitElement(habitElement, habit, editBtn);
+    // Call function  to complete all today's habits, pass progessSelector and progressImg
     completeDayEvent(progressSelector, progressImg);
+    // Call Delete Habit function, pass habitElement, habit
+    deleteHabitElement(habitElement, habit);
 }
 
 // Change progress image when user selects option. If user hasn't recorded a streak yet today, streak updates
@@ -398,11 +410,67 @@ function resetStreak() {
     localStorage.setItem('streakCount', streakCount.toString());
 }
 
-function deleteHabitElement(habitElement, habit) {
-    // delete modal opens on double click
-    habitElement.addEventListener("dblclick", function() {
-        deleteModal.style.display = "block";
+function editHabitElement(habitElement, habit, editBtn) {
+    // edit button appears on hover
+    habitElement.addEventListener("mouseover", function() {
+        editBtn.style.display = "block";
+        editBtn.classList.add("active");
+    // Add event listener to the edit button
+    editBtn.addEventListener("click", function() {
+        // Open the modal
+        modal.style.display = "block";
+        const editHabitTitle = document.getElementById("modal-title");
+        editHabitTitle.textContent = "Edit Habit"
+        // Populate modal inputs with current habit values
+        habitName.value = habit.name;
+        habitGoal.value = habit.goal;
+        unit.value = habit.unit;
 
+        // Add event listener to save button in modal
+        newHabit.addEventListener("click", function() {
+            // Update habit object with new values
+            habit.name = habitName.value;
+            habit.goal = habitGoal.value;
+            habit.unit = unit.value;
+
+            // Update habit element with new values
+            habitElement.querySelector(".habitName").textContent = habit.name;
+            habitElement.querySelector(".habitGoal").textContent = "Goal: " + habit.goal + " " + habit.unit;
+
+            // Update habit object in local storage
+            const habits = JSON.parse(localStorage.getItem('habits')) || [];
+            const updatedHabits = habits.map(item => {
+                if (item.name === habit.name && item.goal === habit.goal) {
+                    return habit;
+                }
+                habitElement.style.display = "none";
+                removeItem()
+                localStorage.setItem('habits', JSON.stringify(updatedHabits));
+                return item;
+                });
+
+            // Clear values from modal after habit is edited
+            habitName.value = "";
+            habitGoal.value = "";
+            unit.value = "";
+
+            // Close the modal
+            modal.style.display = "none";
+        });
+    });
+    habitElement.addEventListener("mouseout", function() {
+        editBtn.style.display = "none";
+        editBtn.classList.remove("active");
+    });
+
+});
+}
+
+
+function deleteHabitElement(habitElement, habit) {
+	habitElement.addEventListener("dblclick", function() {
+    // display delete modal
+	deleteModal.style.display = "block";
         // When delete button is clicked, remove only this habit
         deleteBtn.onclick = function () {
             habitElement.style.display = "none";
@@ -412,9 +480,9 @@ function deleteHabitElement(habitElement, habit) {
             localStorage.setItem('habits', JSON.stringify(updatedHabits));
             deleteModal.style.display = "none"; // Close delete modal after deletion
         };
-    });
+});
 
-    cancelBtn.addEventListener("click", function() {
+  cancelBtn.addEventListener("click", function() {
         deleteModal.style.display = "none";
     });
 }
