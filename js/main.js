@@ -420,6 +420,7 @@ function editHabitElement(habitElement, habit, editBtn) {
         // Open the modal
         modal.style.display = "block";
         const editHabitTitle = document.getElementById("modal-title");
+        const saveEdits = document.getElementById("newHabit");
         editHabitTitle.textContent = "Edit Habit"
         // Populate modal inputs with current habit values
         habitName.value = habit.name;
@@ -427,7 +428,7 @@ function editHabitElement(habitElement, habit, editBtn) {
         unit.value = habit.unit;
 
         // Add event listener to save button in modal
-        newHabit.addEventListener("click", function() {
+        saveEdits.addEventListener("click", function() {
             // Update habit object with new values
             habit.name = habitName.value;
             habit.goal = habitGoal.value;
@@ -441,13 +442,13 @@ function editHabitElement(habitElement, habit, editBtn) {
             const habits = JSON.parse(localStorage.getItem('habits')) || [];
             
             let updatedHabits = habits.map(item => {
-                if (item.name === habit.name && item.goal === habit.goal) {
-                    return;
-                } else {
+                if (item.name !== habit.name && item.goal !== habit.goal) {
                 habitElement.style.display = "none";
-                removeItem(habits);
+                removeItem(habit);
                 localStorage.setItem('habits', JSON.stringify(updatedHabits));
                 return item;
+                } else {
+                    return habit;
                 }
                 
             });
@@ -488,7 +489,6 @@ function deleteHabitElement(habitElement, habit) {
         deleteModal.style.display = "none";
     });
 }
-
 
 // Function to adjust progress for Placeholder habits
 document.getElementById('progressSelector').addEventListener('change', function() {
