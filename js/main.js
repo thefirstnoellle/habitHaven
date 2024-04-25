@@ -39,7 +39,7 @@ const btn = document.getElementById("add-habit");
 // Get element that closes the modal
 const closeModal = document.getElementById("close");
 // button that saves new habit
-const newHabit = document.getElementById("newHabit");
+let newHabit = document.getElementById("newHabit");
 // habit name input by user
 const habitName = document.getElementById("habitName");
 // habit goal input by user
@@ -415,6 +415,11 @@ function editHabitElement(habitElement, habit, editBtn) {
     habitElement.addEventListener("mouseover", function() {
         editBtn.style.display = "block";
         editBtn.classList.add("active");
+    
+        habitElement.addEventListener("mouseout", function() {
+        editBtn.style.display = "none";
+        editBtn.classList.remove("active");
+    });
     // Add event listener to the edit button
     editBtn.addEventListener("click", function() {
         // Open the modal
@@ -429,29 +434,20 @@ function editHabitElement(habitElement, habit, editBtn) {
 
         // Add event listener to save button in modal
         saveEdits.addEventListener("click", function() {
-            // Update habit object with new values
-            habit.name = habitName.value;
-            habit.goal = habitGoal.value;
-            habit.unit = unit.value;
-
             // Update habit element with new values
             habitElement.querySelector(".habitName").textContent = habit.name;
             habitElement.querySelector(".habitGoal").textContent = "Goal: " + habit.goal + " " + habit.unit;
 
-            // Update habit object in local storage
-            const habits = JSON.parse(localStorage.getItem('habits')) || [];
-            
-            let updatedHabits = habits.map(item => {
-                if (item.name !== habit.name && item.goal !== habit.goal) {
-                habitElement.style.display = "none";
-                removeItem(habit);
-                localStorage.setItem('habits', JSON.stringify(updatedHabits));
-                return item;
-                } else {
-                    return habit;
-                }
-                
-            });
+           // Remove the existing habit from local storage
+           let habits = JSON.parse(localStorage.getItem('habits')) || [];
+           const updatedHabits = habits.filter(item => !(item.name === habit.name && item.goal === habit.goal));
+           if (habit.name !== habitName.value || habit.goal !== habitGoal.value || habit.unit !== unit.value){
+            console.log("habits");
+            habitElement.style.display = "none";
+            localStorage.removeItem("habits");
+           }
+           
+           localStorage.setItem('habits', JSON.stringify(updatedHabits));
 
             // Clear values from modal after habit is edited
             habitName.value = "";
@@ -461,10 +457,6 @@ function editHabitElement(habitElement, habit, editBtn) {
             // Close the modal
             modal.style.display = "none";
         });
-    });
-    habitElement.addEventListener("mouseout", function() {
-        editBtn.style.display = "none";
-        editBtn.classList.remove("active");
     });
 });
 }
