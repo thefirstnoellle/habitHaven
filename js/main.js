@@ -441,8 +441,7 @@ function editHabitElement(habitElement, habit, editBtn) {
            // Remove the existing habit from local storage
            let habits = JSON.parse(localStorage.getItem('habits')) || [];
            const updatedHabits = habits.filter(item => !(item.name === habit.name && item.goal === habit.goal));
-           if (habit.name !== habitName.value || habit.goal !== habitGoal.value || habit.unit !== unit.value){
-            console.log("habits");
+           if (habitName.value !== habit.name || habitGoal.value !== habit.goal){
             habitElement.style.display = "none";
             localStorage.removeItem("habits");
            }
